@@ -25,7 +25,7 @@ Result RAW structure:
 
 
 todo:
-1. Complete Main test type №2(Collisions)
+1. Complete Main test type №2 file(Collisions)
 2. Linux starter bench_start_linux.py or unify
 3. Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
 4. csv export
