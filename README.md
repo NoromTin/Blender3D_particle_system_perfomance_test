@@ -8,9 +8,10 @@ Has two main test:
 2. Collisions in compressed conditions
 
 Quick start:
-1. configure bench settings in file bench_start_win.py (blender app path, etc) and check libs
-2. run bench_start_win.py
-3. read result in console
+1. c:\Program Files\Blender Foundation\Blender 3.5\3.5\python\bin\python -m pip install ....... (libs for scene_[].py
+2. configure bench settings in file bench_start_win.py (blender app path, etc) and check libs
+3. run bench_start_win.py
+4. read result in console or csv
 
 Result RAW structure:
 1. os_type - string
@@ -25,7 +26,8 @@ Result RAW structure:
 
 todo:
 1. Complete Main test type №2 file(Collisions)
-2. Linux starter bench_start_linux.py or unify
+2. Linux starter bench_start_linux.py or unified
+3. MacOS starter
 3. Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
 4. csv export
 5. solid and term refactoring

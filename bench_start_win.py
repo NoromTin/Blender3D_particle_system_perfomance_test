@@ -15,28 +15,34 @@ if  __name__ != '__main__':
 
 if __name__ == '__main__':
 
-    from os import cpu_count
+    # from os import cpu_count
+    from psutil import cpu_count
     import os
     import sys
     
     from time import sleep
     from multiprocessing.pool import Pool
+    from statistics import median
+    from cpuinfo import get_cpu_info
+    
+    cpu_name = get_cpu_info()['brand_raw']
     
     ############################
     ### config start###
     
     # number of worker - only for 'mp' test
     mp_min      = 1
-    # mp_max = 'auto' # 'auto' - Automatic os detect, incl hyper-threading
-    mp_max      = 1    
+    mp_max = 'auto' # 'auto' - Automatic os detect, incl hyper-threading
+    # mp_max      = 1    
     mp_factor   = 1    # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores
     
     # threads per worker - only for 'thread' test
     tn_min      = 1         # recommended for mp test, but for 
-    tn_max      = 1    # 'auto' - Automatic os detect, incl hyper-threading
-    tn_factor   = 1         # multiplier for overthread bench
+    tn_max    = 'auto'    # 'auto' - Automatic os detect, incl hyper-threading
+    # tn_max      = 1
+    tn_factor   = 1         # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores
     
-    os_type = 'windows' # i known it is dirty, need some solid refactoring
+    os_type = 'win' # i known it is dirty, need some solid refactoring
     
     # bench list . Bench type process are separate
     # 'mp' - for workers(num of blender instances, every with 1 core, 
@@ -136,13 +142,13 @@ if __name__ == '__main__':
             if bench_type == 'mp':
                 for mp_num in range(mp_min, mp_max + 1):
                     args_list = [ (os_type, bench_name,bench_type, 1 ,mp_n, gui_arg) for mp_n in range(mp_min, mp_num + 1)]
-                    result.append( (args_list[0], tuple(start_pool(args_list) )) )
+                    result.append( (args_list[-1], tuple(start_pool(args_list) )) )
                     i_bench +=1
                     
             elif bench_type == 'thread':
                 for tn_num in range(tn_min, tn_max + 1):
                     args_list = [ (os_type, bench_name, bench_type, tn_num , 1, gui_arg) ]
-                    result.append( (args_list[0], tuple(start_pool(args_list) )) )
+                    result.append( (args_list[-1], tuple(start_pool(args_list) )) )
                     i_bench +=1
 
     # result RAW
@@ -158,12 +164,17 @@ if __name__ == '__main__':
         agg_avg = 0.0
         agg_min = float('+inf')
         agg_max = 0.0
+        agg_med = None
+        mp_time_list = []
         for times in rec[1]:
             mp_time = times[1] - times[0]
+            mp_time_list.append(mp_time)
             agg_avg += mp_time
             agg_min = min(agg_min, mp_time)
             agg_max = max(agg_max, mp_time)
         agg_avg /= len(rec[1])
-        # min
+        agg_med = median(mp_time_list)
+        cpu_rating = sum([ 1/mp_time for mp_time in mp_time_list])
+        core_rating = len(rec[1])/agg_avg
         
-        print(f'os:{rec[0][0]}, main type:{rec[0][1]}, mp type:{rec[0][2]}, cpu num:{max(rec[0][3],rec[0][4])}, avg time:{agg_avg},min time:{agg_min},max time:{agg_max}')
+        print(f'cpu: {cpu_name} os: {rec[0][0]:4} test: {rec[0][1]:9} mp_type: {rec[0][2]:7} core_num:{max(rec[0][3],rec[0][4])} cpu_rating: {compute_rating:.6} core_rating: {core_rating:.6} avg_time: {agg_avg:.6} med_time: {agg_med:.6} min_time: {agg_min:.6} max_time: {agg_max:.6}')
