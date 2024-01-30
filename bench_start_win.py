@@ -136,13 +136,13 @@ if __name__ == '__main__':
             if bench_type == 'mp':
                 for mp_num in range(mp_min, mp_max + 1):
                     args_list = [ (os_type, bench_name,bench_type, 1 ,mp_n, gui_arg) for mp_n in range(mp_min, mp_num + 1)]
-                    result.append( (args_list, start_pool(args_list) ) )
+                    result.append( (args_list[0], tuple(start_pool(args_list) )) )
                     i_bench +=1
                     
             elif bench_type == 'thread':
                 for tn_num in range(tn_min, tn_max + 1):
                     args_list = [ (os_type, bench_name, bench_type, tn_num , 1, gui_arg) ]
-                    result.append( (args_list, start_pool(args_list) ) )
+                    result.append( (args_list[0], tuple(start_pool(args_list) )) )
                     i_bench +=1
 
     # result RAW
@@ -154,4 +154,16 @@ if __name__ == '__main__':
     print('')
     print('result analisys')
     for rec in result:
-        print(f'os:{rec[0][0]}, main type:{rec[0][1]}, mp type:{rec[0][2]}, cpu num:{max(rec[0][3],rec[0][4])}')
+        # average
+        agg_avg = 0.0
+        agg_min = float('+inf')
+        agg_max = 0.0
+        for times in rec[1]:
+            mp_time = times[1] - times[0]
+            agg_avg += mp_time
+            agg_min = min(agg_min, mp_time)
+            agg_max = max(agg_max, mp_time)
+        agg_avg /= len(rec[1])
+        # min
+        
+        print(f'os:{rec[0][0]}, main type:{rec[0][1]}, mp type:{rec[0][2]}, cpu num:{max(rec[0][3],rec[0][4])}, avg time:{agg_avg},min time:{agg_min},max time:{agg_max}')

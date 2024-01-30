@@ -31,4 +31,3 @@ todo:
 5. solid and term refactoring
 6. List to dict in the result
 
-test
