@@ -38,7 +38,9 @@ if __name__ == '__main__':
     
     # threads per worker - only for 'thread' test
     tn_min      = 1         # recommended for mp test, but for 
-    tn_max    = 'auto'    # 'auto' - Automatic os detect, incl hyper-threading
+    # 'auto' - Automatic os detect, incl hyper-threading. But tn_max limited by 8, because scalability for more then 4 core is not effective
+    tn_max_limit = 8
+    tn_max    = 'auto'     
     # tn_max      = 1
     tn_factor   = 1         # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores
     
@@ -91,7 +93,7 @@ if __name__ == '__main__':
         mp_max = cpu_count() * mp_factor
 
     if tn_max == 'auto':
-        tn_max = cpu_count() * tn_factor
+        tn_max = min(cpu_count() * tn_factor, tn_max_limit)
 
     if not is_gui_debug:
         gui_arg = '-b'
