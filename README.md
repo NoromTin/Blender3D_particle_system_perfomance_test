@@ -1,9 +1,9 @@
 # Blender3D_particle_system_perfomance_test
-
-Perfomance test for Blender3D Particle subsystem
-Only plain (without GUI)
-Only updating particles coordinates (Play mode, not Render)
-One thread per one app instance
+desc:
+Perfomance test for Blender3D Particle subsystem.
+Only plain (without GUI).
+Only updating particles coordinates (Play mode, not Render).
+One thread per one app instance.
 
 Has two main test:
 1. Spreading in empty space
