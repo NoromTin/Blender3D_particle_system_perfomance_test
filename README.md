@@ -8,7 +8,7 @@ Has two main test:
 2. Collisions in compressed conditions
 
 Quick start:
-1. configure bench settings in file bench_start_win.py (! blender path) and check libs
+1. configure bench settings in file bench_start_win.py (blender app path, etc) and check libs
 2. run bench_start_win.py
 3. read result in console
 
