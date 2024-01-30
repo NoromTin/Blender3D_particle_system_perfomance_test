@@ -10,9 +10,23 @@ Has two main test:
 2. Collisions in compressed conditions
 
 Quick start:
+1. configure bench settings in file bench_start_win.py (! blender path) and check libs
+2. run bench_start_win.py
+3. read result in console
+
+Result RAW structure:
+os_type - string
+bench_main_type - string
+bench_mp_type - string
+num_thread per instance - int (1 for bench_mp_type ='mp')
+num instances - int (1 for bench_mp_type ='thread')
+list of tuples (time_start, time_end) in seconds for every instance - float
+ 
+
 
 
 todo:
 1. Main test type №2(Collisions)
 2. Linux .sh starter
 3. Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
+4. csv export
