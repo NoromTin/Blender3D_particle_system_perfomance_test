@@ -175,6 +175,7 @@ if __name__ == '__main__':
         agg_avg /= len(rec[1])
         agg_med = median(mp_time_list)
         cpu_rating = sum([ 1/mp_time for mp_time in mp_time_list])
-        core_rating = len(rec[1])/agg_avg
+        core_num = max(rec[0][3],rec[0][4])
+        core_rating = cpu_rating / core_num
         
-        print(f'cpu: {cpu_name} os: {rec[0][0]:4} test: {rec[0][1]:9} mp_type: {rec[0][2]:7} core_num:{max(rec[0][3],rec[0][4])} cpu_rating: {compute_rating:.6} core_rating: {core_rating:.6} avg_time: {agg_avg:.6} med_time: {agg_med:.6} min_time: {agg_min:.6} max_time: {agg_max:.6}')
+        print(f'cpu: {cpu_name} os: {rec[0][0]:4} test: {rec[0][1]:9} mp_type: {rec[0][2]:7} core_num:{core_num} cpu_rating: {cpu_rating:.6} core_rating: {core_rating:.6} avg_time: {agg_avg:.6} med_time: {agg_med:.6} min_time: {agg_min:.6} max_time: {agg_max:.6}')

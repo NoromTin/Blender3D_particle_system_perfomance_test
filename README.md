@@ -1,7 +1,7 @@
 # Blender3D_particle_system_perfomance_test
 Perfomance test for Blender3D Particle subsystem.
-Plain (without GUI).
-Only updating particles coordinates (Play mode, not Render).
+Check speed of updating particles coordinates (like Play button, without GUI, without rendering).
+MP scalability stat.
 
 Has two main test:
 1. Spreading in empty space
@@ -20,9 +20,19 @@ Result RAW structure:
 4. num_thread per instance - int (1 for bench_mp_type ='mp')
 5. num instances - int (1 for bench_mp_type ='thread')
 6. list of tuples (time_start, time_end) in seconds for every instance - float
- 
 
-
+Result analisys structure:
+1. cpu_name - string
+2. os - string ('win','lnx','mac')
+3. test_type - string('movement','collision')
+4. mp_type   - string('mp','mt')
+5. core_num  - int
+6. cpu_rating - float (compute(cpu) rating for current core_num)
+7. core_rating - float (core efficiency)
+8. avg_time     - float (average test time)
+9. med_time     - mediana
+10. min_time    - float
+11. max_time    - float
 
 todo:
 1. Complete Main test type №2 file(Collisions)
