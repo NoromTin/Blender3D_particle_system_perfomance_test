@@ -29,3 +29,4 @@ todo:
 3. Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
 4. csv export
 5. solid and term refactoring
+6. List to dict in the result

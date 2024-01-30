@@ -144,10 +144,14 @@ if __name__ == '__main__':
                     args_list = [ (os_type, bench_name, bench_type, tn_num , 1, gui_arg) ]
                     result.append( (args_list, start_pool(args_list) ) )
                     i_bench +=1
-                    
-    # print('result', result)
-    
-    ### analisys
-    result_analisys =[]
+
+    # result RAW
+    print('result raw:')
     for rec in result:
         print(rec)
+
+    ### analisys
+    print('')
+    print('result analisys')
+    for rec in result:
+        print(f'os:{rec[0][0]}, main type:{rec[0][1]}, mp type:{rec[0][2]}, cpu num:{max(rec[0][3],rec[0][4])}')
