@@ -1,5 +1,4 @@
 # Blender3D_particle_system_perfomance_test
-desc:
 Perfomance test for Blender3D Particle subsystem.
 Plain (without GUI).
 Only updating particles coordinates (Play mode, not Render).
