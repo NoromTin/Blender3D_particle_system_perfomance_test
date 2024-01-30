@@ -30,3 +30,4 @@ todo:
 2. Linux starter bench_start_linux.py or unify
 3. Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
 4. csv export
+5. solid and term refactoring
