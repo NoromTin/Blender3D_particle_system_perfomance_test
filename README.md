@@ -22,15 +22,15 @@ Result RAW structure:
 6. list of tuples (time_start, time_end) in seconds for every instance - float
 
 Result analisys structure:
-1. cpu_name - string
+1. cpu_name - string (name of cpu)
 2. os - string ('win','lnx','mac')
 3. test_type - string('movement','collision')
 4. mp_type   - string('mp','mt')
-5. core_num  - int
-6. cpu_rating - float (compute(cpu) rating for current core_num)
+5. core_num  - int (used for current test)
+6. cpu_rating - float (main metric, compute(cpu) rating for current core_num)
 7. core_rating - float (core efficiency)
-8. avg_time     - float (average test time)
-9. med_time     - mediana
+8. avg_time     - float (average)
+9. med_time     - float (mediana)
 10. min_time    - float
 11. max_time    - float
 
