@@ -20,7 +20,7 @@ import blend_render_info
 # scene settings, better dont change for shared benchmark
 frame_part_born     = 0
 subdiv              = 7
-scene_frame_end           = 1000
+scene_frame_end     = 502 #  502 - 2(init frames) = 500 active frames
 part_velocity       = 1.0
 
 ps_timestep = 1/1000
@@ -91,10 +91,14 @@ IPC_READY_sender.send(process_num)
 # IPC START waiting from coordinator
 msg = IPC_START_recv.accept()
 
+# skip emission and 1st work frame for proper init
+bpy.context.scene.frame_set(1)
+bpy.context.scene.frame_set(2)
+
 # play 
 time_start = time()
 
-for i in range(1, scene_frame_end + 1):
+for i in range(3, scene_frame_end + 1):
     bpy.context.scene.frame_set(i)
 time_end = time()
 

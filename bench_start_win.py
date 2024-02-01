@@ -64,7 +64,7 @@ if __name__ == '__main__':
     # number of worker - only for 'mp' test
     mp_min      = 1
     mp_max = 'auto' # 'auto' - Automatic os detect, incl hyper-threading
-    
+    # mp_max = 4
     # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
     mp_factor   = 1    
     
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     # 'auto' - Automatic os detect, incl hyper-threading. But tn_max limited by 8, because scalability for more then 4 core is not effective
     tn_max_limit = 8
     tn_max    = 'auto'     
-    # tn_max      = 1
+    # tn_max      = 2
     # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
     tn_factor   = 1 
     
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     # test type, each have separate scene python file
     test_type_list = [
                 'movement', 
-                #'collision'
+                'collision'
                 ]
 
     out_to_console  = True

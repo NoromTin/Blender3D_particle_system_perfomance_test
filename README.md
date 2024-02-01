@@ -42,4 +42,6 @@ todo:
 4. READY csv export
 5. solid and term refactoring
 6. List to dict, pythonic way
+7. Warming up cpu to get more honest result
+8. Conclusion analysys
 

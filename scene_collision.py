@@ -1,6 +1,3 @@
-import bpy
-bpy.ops.wm.quit_blender()
-
 import sys
 from time import time
 
@@ -12,17 +9,19 @@ process_num = int(args.process_num)
 
 from multiprocessing.connection import Listener, Client
 
-IPC_READY_sender = Client(('localhost', 6000))
+IPC_base_port = 6000
+
+IPC_READY_sender = Client(('localhost', IPC_base_port))
 
 import bpy
 import blend_render_info
 
 
 # scene settings, better dont change for shared benchmark
-frame_part_born     = 0
+frame_part_born     = 1
 subdiv              = 7
-scene_frame_end           = 1000
-part_velocity       = 1.0
+scene_frame_end     = 12 #  12 - 2(init frames) = 10 active frames     50 down factor(10 vs 500) compare to movement
+part_velocity       = 10000.0
 
 ps_timestep = 1/1000
 
@@ -52,7 +51,8 @@ src_vertex_num = len(bpy.data.objects[obj.name].data.vertices)
 obj.modifiers.new("part", type='PARTICLE_SYSTEM')
 ps = obj.particle_systems[0]
 settings = ps.settings
-settings.emit_from          = 'VERT'
+# settings.emit_from          = 'VOLUME'
+# settings.distribution       = 'RANDOM'
 settings.use_emit_random    = False
 settings.physics_type       = 'NEWTON'
 settings.integrator         = 'RK4'
@@ -73,6 +73,13 @@ settings.lifetime           = scene_frame_end + 1
 settings.frame_start        = frame_part_born
 settings.frame_end          = frame_part_born
 
+# collision barrier
+bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=subdiv,radius=srcRadius * 1.02, calc_uvs=False, enter_editmode=False
+                                        , align='WORLD', location=src_location, rotation=src_rotation, scale=src_scale)
+objBarrier = bpy.context.active_object
+objBarrier.name = "barrier"
+objBarrier.modifiers.new(type='COLLISION', name='')
+
 # camera only for debug
 camera_data = bpy.data.cameras.new(name='Camera')
 camera_object = bpy.data.objects.new('Camera', camera_data)
@@ -84,7 +91,7 @@ for area in bpy.context.screen.areas:
 bpy.context.scene.camera = camera_object
 
 # print('worker connect', ('localhost', 6001 + process_num))
-IPC_START_recv = Listener(('localhost', 6001 + process_num))
+IPC_START_recv = Listener(('localhost', IPC_base_port + 2 + process_num))
 
 # IPC READY send to coordinator
 IPC_READY_sender.send(process_num)
@@ -92,15 +99,22 @@ IPC_READY_sender.send(process_num)
 # IPC START waiting from coordinator
 msg = IPC_START_recv.accept()
 
+
+# skip emission and 1st work frame for proper init
+bpy.context.scene.frame_set(1)
+bpy.context.scene.frame_set(2)
+
 # play 
 time_start = time()
 
-for i in range(1, scene_frame_end + 1):
+
+for i in range(3, scene_frame_end + 1):
     bpy.context.scene.frame_set(i)
 time_end = time()
 
 # IPC RESULT send to coordinator
-IPC_RESULT_sender  = Client(('localhost', 10000))
+IPC_RESULT_sender  = Client(('localhost', IPC_base_port + 1))
 IPC_RESULT_sender.send((time_start, time_end))
 
 bpy.ops.wm.quit_blender()
+
