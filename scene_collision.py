@@ -16,6 +16,7 @@ IPC_READY_sender = Client(('localhost', IPC_base_port))
 import bpy
 import blend_render_info
 
+blender_version = bpy.app.version_string
 
 # scene settings, better dont change for shared benchmark
 frame_part_born     = 1
@@ -114,7 +115,7 @@ time_end = time()
 
 # IPC RESULT send to coordinator
 IPC_RESULT_sender  = Client(('localhost', IPC_base_port + 1))
-IPC_RESULT_sender.send((time_start, time_end))
+IPC_RESULT_sender.send((blender_version, time_start, time_end))
 
 bpy.ops.wm.quit_blender()
 

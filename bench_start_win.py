@@ -24,6 +24,8 @@ if  __name__ != '__main__':
     # blender_path = '/usr/share/blender/4.0/'
     
     blender_path = 'C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender'
+    # blender_path = 'C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender'
+    
 
 if __name__ == '__main__':
 
@@ -60,11 +62,12 @@ if __name__ == '__main__':
     # there 2 mp_type: 'mp' and 'th'
     # 'mp' - multiprocessing, separate app instance for every cpu core with one core for each
     # 'th' - multithreading, one app instance with configured core num 
+    #  There no middle setting test possibility, like 2 instance with 2 thread each. Think no case for that
     
     # number of worker - only for 'mp' test
     mp_min      = 1
     mp_max = 'auto' # 'auto' - Automatic os detect, incl hyper-threading
-    # mp_max = 4
+    # mp_max = 1
     # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
     mp_factor   = 1    
     
@@ -73,7 +76,7 @@ if __name__ == '__main__':
     # 'auto' - Automatic os detect, incl hyper-threading. But tn_max limited by 8, because scalability for more then 4 core is not effective
     tn_max_limit = 8
     tn_max    = 'auto'     
-    # tn_max      = 2
+    # tn_max      = 1
     # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
     tn_factor   = 1 
     
@@ -204,24 +207,27 @@ if __name__ == '__main__':
         agg_max = 0.0
         agg_med = None
         mp_time_list = []
-        for times in rec[1]:
-            mp_time = times[1] - times[0]
+        for result_rec in rec[1]:
+            mp_time = result_rec[2] - result_rec[1]
             mp_time_list.append(mp_time)
             agg_avg += mp_time
             agg_min = min(agg_min, mp_time)
             agg_max = max(agg_max, mp_time)
+            
+        # yep to dirty to get blender version from every run, but it simple, that made separeate process for
+        blender_version = rec[1][0][0]
         agg_avg /= len(rec[1])
         agg_med = median(mp_time_list)
         cpu_rating = sum([ 1/mp_time for mp_time in mp_time_list])
         core_num = max(rec[0][2],rec[0][3])
         core_rating = cpu_rating / core_num
         
-        result_analisys.append((rec[0][0],rec[0][1],core_num,cpu_rating,core_rating,agg_avg,agg_med,agg_min,agg_max))
+        result_analisys.append((rec[0][0],rec[0][1],blender_version,core_num,cpu_rating,core_rating,agg_avg,agg_med,agg_min,agg_max))
     
     if out_to_console:
         print('')
         print('result analisys')
-        print(f'cpu : {cpu_name}  os : {os_type:4}')
+        print(f'cpu : {cpu_name}  os : {os_type:4}  blender ver :{blender_version:8}')
         for test in result_analisys:
             print(f'test_type : {test[1]:9}  mp_type : {test[0]:3}  core_num : {test[2]}  cpu_rating : {test[3]:.4f}  core_rating : {test[4]:.4f}  avg_time : {test[5]:.4f}  med_time : {test[6]:.4f}  min_time : {test[7]:.4f}  max_time : {test[8]:.4f}')
             
@@ -233,6 +239,6 @@ if __name__ == '__main__':
             csv_writer = csv.writer(csvfile #, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL
                                     )
             # headers
-            csv_writer.writerow(['cpu','os','test_type','mp_type','core_num','cpu_rating','core_rating','avg_time','med_time','min_time','max_time'] )
+            csv_writer.writerow(['cpu','os','blender_version','test_type','mp_type','core_num','cpu_rating','core_rating','avg_time','med_time','min_time','max_time'] )
             for test in result_analisys:
-                csv_writer.writerow([cpu_name, os_type, test[1][0:4],test[0],test[2],test[3],test[4],test[5],test[6],test[7],test[8]])
+                csv_writer.writerow([cpu_name, os_type,blender_version, test[1][0:4],test[0],test[2],test[3],test[4],test[5],test[6],test[7],test[8]])

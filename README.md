@@ -44,4 +44,5 @@ todo:
 6. List to dict, pythonic way
 7. Warming up cpu to get more honest result
 8. Conclusion analysys
+9. Blender version
 
