@@ -8,24 +8,34 @@ IPC_base_port = 6000
 IPC_addr_worker_ready   = ('localhost', IPC_base_port)
 IPC_addr_worker_result  = ('localhost', IPC_base_port + 1)
 
+# os detection
+if platform == "linux" or platform == "linux2":
+    os_type = 'lnx'
+elif platform == "darwin":
+    os_type = 'mac'
+elif platform == "win32":
+    os_type = 'win'
+
+
+
 if  __name__ != '__main__':
     import os
     import subprocess
     
     # worker config
-    
-    ### windows
-    # blender_path = '%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\4.0\'
-    
-    ### mac
-    # blender_path = './Blender.app/Contents/MacOS/Blender'
-    
-    ### linux
-    # blender_path = '/usr/share/blender/4.0/'
-    
-    blender_path = 'C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender'
-    # blender_path = 'C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender'
-    
+
+    if os_type == 'win':
+        blender_path = 'C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender'
+        # blender_path = 'C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender'
+        
+    elif os_type == 'lnx':
+        blender_path = '/snap//blender/4300/4.0/'
+        
+    elif os_type == 'mac':
+        blender_path = './Blender.app/Contents/MacOS/Blender'
+        
+    else:
+        blender_path = './blender'
 
 if __name__ == '__main__':
 
@@ -46,12 +56,7 @@ if __name__ == '__main__':
     cpu_name = get_cpu_info()['brand_raw']
     
     
-    if platform == "linux" or platform == "linux2":
-        os_type = 'lnx'
-    elif platform == "darwin":
-        os_type = 'mac'
-    elif platform == "win32":
-        os_type = 'win'
+
 
     
     ############################
@@ -229,16 +234,17 @@ if __name__ == '__main__':
         print('result analisys')
         print(f'cpu : {cpu_name}  os : {os_type:4}  blender ver :{blender_version:8}')
         for test in result_analisys:
-            print(f'test_type : {test[1]:9}  mp_type : {test[0]:3}  core_num : {test[2]}  cpu_rating : {test[3]:.4f}  core_rating : {test[4]:.4f}  avg_time : {test[5]:.4f}  med_time : {test[6]:.4f}  min_time : {test[7]:.4f}  max_time : {test[8]:.4f}')
+            print(f'test_type : {test[1]:9}  mp_type : {test[0]:3}  core_num : {test[3]}  cpu_rating : {test[4]:.4f}  core_rating : {test[5]:.4f}  avg_time : {test[6]:.4f}  med_time : {test[7]:.4f}  min_time : {test[8]:.4f}  max_time : {test[9]:.4f}')
             
     if out_to_csv:
         # additional unique mark for result files
         bench_hash = uuid4().hex[0:8]
-        csv_file_name = cpu_name.replace(" ", "_")+ '__' + bench_hash + '.csv'
+        # raw
+        csv_file_name = cpu_name.replace(" ", "_") + '__' + os_type + '__v' + blender_version.replace('.','_') + '__' + bench_hash + '.csv'
         with open(csv_file_dir + csv_file_name, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile #, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL
                                     )
             # headers
             csv_writer.writerow(['cpu','os','blender_version','test_type','mp_type','core_num','cpu_rating','core_rating','avg_time','med_time','min_time','max_time'] )
             for test in result_analisys:
-                csv_writer.writerow([cpu_name, os_type,blender_version, test[1][0:4],test[0],test[2],test[3],test[4],test[5],test[6],test[7],test[8]])
+                csv_writer.writerow([cpu_name, os_type, blender_version, test[1][0:4],test[0],test[3],test[4],test[5],test[6],test[7],test[8],test[9]])

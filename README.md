@@ -8,6 +8,8 @@ Has two main test:
 2. Collision - Spreading and continously reflecting in compressed conditions (sphere)
 
 Quick start:
+1. linux apt install python3-pip && pip install psutil py-cpuinfo
+1. check libs: pip install psutil
 1. c:\Program Files\Blender Foundation\Blender 3.5\3.5\python\bin\python -m pip install ....... (libs for scene_[].py
 2. configure bench settings in file bench_start_win.py (blender app path, etc) and check libs
 3. run bench_start_win.py
