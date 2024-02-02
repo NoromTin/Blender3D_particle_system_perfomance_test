@@ -1,6 +1,7 @@
 
-from time import time
+from sys import platform
 
+from time import time
 from multiprocessing.connection import Listener, Client
 
 IPC_base_port = 6000
@@ -43,7 +44,7 @@ if __name__ == '__main__':
     from psutil import cpu_count
     import os
     import sys
-    from sys import platform
+    
     
     from time import sleep
     from multiprocessing.pool import Pool
