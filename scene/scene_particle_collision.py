@@ -21,7 +21,7 @@ blender_version = bpy.app.version_string
 # scene settings, better dont change for shared benchmark
 frame_part_born     = 1
 subdiv              = 7
-scene_frame_end     = 12 #  12 - 2(init frames) = 10 active frames     50 down factor(10 vs 500) compare to movement
+scene_frame_end     = 5 #  12 - 2(init frames) = 10 active frames     50 down factor(10 vs 500) compare to movement
 part_velocity       = 10000.0
 
 ps_timestep = 1/1000
@@ -94,25 +94,23 @@ bpy.context.scene.camera = camera_object
 # print('worker connect', ('localhost', 6001 + process_num))
 IPC_START_recv = Listener(('localhost', IPC_base_port + 2 + process_num))
 
-# IPC READY send to coordinator
-IPC_READY_sender.send(process_num)
-
-# cpu prewarming ~ 2 sec
+# cpu prewarming ~ 1 sec
 a = 1.0
-for i in range(30000000):
+for i in range(15000000):
     a *= 3.1415
     a /= 3.14149
 
+# IPC READY send to coordinator
+IPC_READY_sender.send(process_num)
+
 # IPC START waiting from coordinator
 msg = IPC_START_recv.accept()
-
 
 # skip emission and 1st work frame for proper init
 bpy.context.scene.frame_set(1)
 
 # play 
 time_start = time()
-
 
 for i in range(2, scene_frame_end + 1):
     bpy.context.scene.frame_set(i)
