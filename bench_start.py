@@ -7,11 +7,12 @@ from multiprocessing import set_start_method
 
 
 ################################# config begin
+###
 
 hardware        = 'Redmi Book 14 Ryzen II, 16Gb Ram'
 bench_env       = 'bare'
-# hardware_env = 'vm virtual box on Win10 host'
-# hardware_env = 'vm ec2'
+# bench_env = 'vm virtual box on Win10 host'
+# bench_env = 'vm ec2'
 
 # blender_path_Win = 'C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender'
 blender_path_Win = 'C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender'
@@ -59,6 +60,7 @@ csv_file_dir   = './result/'
 
 is_gui_debug    = False # True - running with gui, false - without (default)
 
+###
 ################################# config end
 
 
@@ -239,7 +241,7 @@ if __name__ == '__main__':
     
     if out_to_console:
         print('')
-        print('result analisys')
+        print('result analysis')
         print(f'cpu : {cpu_name}  os : {os_type:4}  blender ver :{blender_version:8}')
         for test in result_analysis:
             print(f'test_type : {test[1]:9}  mp_type : {test[0]:3}  core_num : {test[3]}  cpu_rating : {test[4]:.4f}  core_rating : {test[5]:.4f}  avg_time : {test[6]:.4f}  med_time : {test[7]:.4f}  min_time : {test[8]:.4f}  max_time : {test[9]:.4f}')
@@ -251,8 +253,8 @@ if __name__ == '__main__':
             csv_writer = csv.writer(csvfile #, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL
                                     )
             # headers
-            csv_writer.writerow(['cpu', 'hardware','bench_env', 'os_type', 'os_release', 'os_version', 'blender_version','test_type', 'mp_type', 'core_num', 'cpu_rating','core_rating','avg_time','med_time','min_time','max_time'] )
+            csv_writer.writerow(['cpu', 'hardware','bench_env', 'os_type', 'os_release', 'os_version', 'blender_version','test_type', 'mp_type', 'core_num', 'cpu_rating','core_rating','avg_time','med_time','min_time','max_time','bench_hash'] )
             for test in result_analysis:
-                csv_writer.writerow([cpu_name, hardware, bench_env, os_type, os_release, os_version , blender_version, test[1],test[0],test[3],test[4],test[5],test[6],test[7],test[8],test[9]])
+                csv_writer.writerow([cpu_name, hardware, bench_env, os_type, os_release, os_version , blender_version, test[1],test[0],test[3],test[4],test[5],test[6],test[7],test[8],test[9],bench_hash])
         print('csv result file: ',csv_file_name)
     
