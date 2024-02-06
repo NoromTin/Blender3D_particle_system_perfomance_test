@@ -9,7 +9,7 @@ from multiprocessing import set_start_method
 ################################# config begin
 ###
 
-hardware        = 'Redmi Book 14 Ryzen II, 16Gb Ram'
+hardware        = 'Mac Book Pro 2018 32GRam'
 bench_env       = 'bare'
 # bench_env = 'vm virtual box on Win10 host'
 # bench_env = 'vm ec2'
@@ -17,10 +17,8 @@ bench_env       = 'bare'
 # blender_path_Win = 'C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender'
 blender_path_Win = 'C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender'
 blender_path_Lnx = '/snap/blender/4300/blender'
-blender_path_Mac = './Blender.app/Contents/MacOS/Blender'
-
-
-# test type, each have separate scene python file
+blender_path_Mac = '/Applications/Blender.app/Contents/MacOS/Blender'
+# test type, each have separate scene python file
 # all scenes complexity scaled for around same cpu rating for a one core test
 test_type_list = [
             'particle_movement', 
@@ -50,7 +48,7 @@ mp_factor   = 1
 tn_min      = 1   
 tn_max    = 'auto' # 'auto' - Automatic os detect, incl hyper-threading.
 # tn_max      = 2
-tn_max_limit = 8  # tn_max limited by 8, because scalability 'th' for more then 4 core is not effective. Preserving time for large multi-core systems
+tn_max_limit = 180  # tn_max limited by 8, because scalability 'th' for more then 4 core is not effective. Preserving time for large multi-core systems
 # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
 tn_factor   = 1 
 
