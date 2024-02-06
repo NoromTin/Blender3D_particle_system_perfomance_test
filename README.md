@@ -7,6 +7,11 @@ Contain tests:
 2. particle_collision   - Spreading and continously reflecting in compressed conditions (sphere)
 3. empty_play           - just playing in empty scene
 
+Requirements:
+1. Some .py file editing experience
+1. Tested with Blender 3.5, 4.0 versions
+2. 400mb ram per logical core (num of cores used in test can be limited with configuration part)
+
 Quick start:
 1. check os python 3 libs
 1. Win: pip install psutil py-cpuinfo
@@ -17,7 +22,7 @@ Quick start:
 3. configure bench settings in file bench_start.py (blender path, MP usage, info string vars for result file)
 4. run bench_start_win.py
 5. read result in console or csv
-6. you could send result to OR push it to this rep in your branch
+6. you could send result to aninelo@gmail.com OR push it to this rep with your branch
 
 Result RAW structure:
 1. os_type                  - string
