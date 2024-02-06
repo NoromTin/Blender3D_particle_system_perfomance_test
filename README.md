@@ -10,7 +10,7 @@ Contain tests:
 Requirements:
 1. .py file editing experience
 1. installed Blender app (tested on Blender v3.5, v4.0)
-2. 400mb ram per logical core (num of cores used in test can be limited with configuration part, but full cores access running is prefferable)
+2. 400mb ram per logical core (num of cores used in test can be limited with configuration, but all cores access running is prefferable)
 
 Quick start:
 1. check os python 3 libs
@@ -54,17 +54,17 @@ Result analisys structure:
 11. max_time    - float  [maximum time, sec]                        (calculated)
 
 
- TODO solid and term refactoring
- TODO Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
- TODO List to dict, pythonic way
+. TODO solid and term refactoring
+. TODO Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
+. TODO List to dict, pythonic way
  
- GOOD Linux starter bench_start_linux.py or unified
- GOOD Complete Main test type №2 file(Collisions)
- GOOD MacOS starter
- GOOD READY csv export
- GOOD Warming up cpu to get more honest result
- GOOD Conclusion analysys
- GOOD Blender version
+. GOOD Linux starter bench_start_linux.py or unified
+. GOOD Complete Main test type №2 file(Collisions)
+. GOOD MacOS starter
+. GOOD READY csv export
+. GOOD Warming up cpu to get more honest result
+. GOOD Conclusion analysys
+. GOOD Blender version
 
 HISTORY:
 
