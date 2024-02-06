@@ -53,18 +53,19 @@ Result analisys structure:
 10. min_time    - float  [minimal time, sec]                        (calculated)
 11. max_time    - float  [maximum time, sec]                        (calculated)
 
-
-. TODO solid and term refactoring
-. TODO Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
-. TODO List to dict, pythonic way
+TODO:
+1. TODO solid and term refactoring
+2. TODO Make online result collector, like : https://www.cgdirector.com/blender-benchmark-results-updated-scores/
+3. TODO List to dict, pythonic way
  
-. GOOD Linux starter bench_start_linux.py or unified
-. GOOD Complete Main test type №2 file(Collisions)
-. GOOD MacOS starter
-. GOOD READY csv export
-. GOOD Warming up cpu to get more honest result
-. GOOD Conclusion analysys
-. GOOD Blender version
+COMPLETED:
+1. Linux starter bench_start_linux.py or unified
+2. Complete Main test type №2 file(Collisions)
+3. MacOS starter
+4. READY csv export
+5. Warming up cpu to get more honest result
+6. Conclusion analysys
+7. Blender version
 
 HISTORY:
 
