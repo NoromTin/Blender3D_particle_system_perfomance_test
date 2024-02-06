@@ -24,6 +24,9 @@ Quick start:
 5. read result in console or csv
 6. you could send result to aninelo@gmail.com OR push it to this rep with your branch
 
+Wanted result data for:
+1. AMD Threadripper, Intel Xeons, AMD Ryzen, Exotic CPUs, and others)
+
 Result RAW structure:
 1. os_type                  - string
 2. test_type                - string
