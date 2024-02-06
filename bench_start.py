@@ -73,13 +73,12 @@ elif platform == "darwin":
     os_type = 'Mac'
 elif platform == "win32":
     os_type = 'Win'
-    
 
 
-
+##### for a workers process
 if  __name__ != '__main__':
 
-    ### for a workers process
+    
 
     import subprocess
     
@@ -98,12 +97,10 @@ if  __name__ != '__main__':
         exit()
 
     bench_dir = os.path.dirname(__file__)
-    # print('bench_dir: ',bench_dir)
 
 def start_worker(*args):
 
-    ### starting blender separate instance, without GUI(default), with scene py file. Exit when the instance exit
-
+    #starting blender separate instance, without GUI(default), with scene py file. Exit when the instance exit
     test_type  = args[0]
     t_num       = args[1]
     p_num       = args[2]
@@ -111,14 +108,13 @@ def start_worker(*args):
     
     blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(p_num)
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote
-
-    # print('blender_args:', blender_args, test_type, t_num, p_num, gui_arg)
     os.system(cmd)
 
+
+### for the main process
 if __name__ == '__main__':
 
-    # for the main process
-
+    
     import sys
     from time import sleep
     from multiprocessing.pool import Pool
@@ -150,7 +146,6 @@ if __name__ == '__main__':
     else:
         gui_arg = ''
 
-# if __name__ == '__main__':
 
     pool = Pool(processes=mp_max)
     
