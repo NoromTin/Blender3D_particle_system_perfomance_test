@@ -8,9 +8,9 @@ Contain tests:
 3. empty_play           - just playing in empty scene
 
 Requirements:
-1. Some .py file editing experience
-1. Tested with Blender 3.5, 4.0 versions
-2. 400mb ram per logical core (num of cores used in test can be limited with configuration part)
+1. .py file editing experience
+1. installed Blender app (tested on Blender v3.5, v4.0)
+2. 400mb ram per logical core (num of cores used in test can be limited with configuration part, but full cores access running is prefferable)
 
 Quick start:
 1. check os python 3 libs
