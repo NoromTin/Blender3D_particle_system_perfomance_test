@@ -22,7 +22,7 @@ Quick start:
 3. configure bench settings in file bench_start.py (blender path, MP usage, info string vars for result file)
 4. run bench_start_win.py
 5. read result in console or csv
-6. you could send result to aninelo@gmail.com (i'll share it) OR push it to this rep with your branch
+6. you could send result to aninelo@gmail.com with "blender bench" subject (i'll share it) OR push it to this rep with your branch
 
 Wanted result data for:
 1. AMD Threadripper, Intel Xeons, AMD Ryzen, Apple CPUs, Exotic CPUs, and others)
