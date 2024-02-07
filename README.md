@@ -1,5 +1,5 @@
-# Blender3D_gui_backend_perfomance_test
-Perfomance test for Blender3D UI without GUI (mainly for particle system)
+# Blender UI no GUI perfomance benchmark
+Perfomance test for Blender (www.blender.org) UI without GUI (mainly for particle subsystem)
 Multiprocessing core scalability.
 
 Contain tests:
@@ -22,7 +22,7 @@ Quick start:
 3. configure bench settings in file bench_start.py (blender path, MP usage, info string vars for result file)
 4. run bench_start_win.py
 5. read result in console or csv
-6. you could send result to aninelo@gmail.com OR push it to this rep with your branch
+6. you could send result to aninelo@gmail.com (i'll share it) OR push it to this rep with your branch
 
 Wanted result data for:
 1. AMD Threadripper, Intel Xeons, AMD Ryzen, Apple CPUs, Exotic CPUs, and others)
@@ -92,5 +92,15 @@ COMPLETED:
 6. Conclusion analysys
 7. Blender version
 
-HISTORY:
+HISTORY(WHY):
+
+I did some Blender modification for my scientific calculation.
+Main modified part is particle system.
+(logging, some precalculations, FLOAT --> DOUBLE, simplifiing structures, cleaning, disable heavy functions I don't need, fixes, etc..)
+My calculations are very CPU-hungry, and this is not one-time project.
+So I started developing my home supercomputer (Beowolf cluster).
+And you know it is an economic problem.
+Part of Blender code, that i made and i interest for, don't contain most of the modern CPU instructions. So common benchmarks do not fit this goal.
+So i wrote it!)  
+I think it turned out to be a good universal tool)
 
