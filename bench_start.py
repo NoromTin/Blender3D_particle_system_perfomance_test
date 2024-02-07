@@ -6,7 +6,8 @@ from multiprocessing.connection import Listener, Client
 from multiprocessing import set_start_method
 
 
-################################# config begin
+################################# 
+### config begin
 ###
 
 hardware        = 'Mac Book Pro 2018 32GRam'
@@ -59,7 +60,8 @@ csv_file_dir   = './result/'
 is_gui_debug    = False # True - running with gui, false - without (default)
 
 ###
-################################# config end
+### config end
+################################# 
 
 
 IPC_base_port = 6100
@@ -77,8 +79,6 @@ elif platform == "win32":
 
 ##### for a workers process
 if  __name__ != '__main__':
-
-    
 
     import subprocess
     
@@ -114,7 +114,6 @@ def start_worker(*args):
 ### for the main process
 if __name__ == '__main__':
 
-    
     import sys
     from time import sleep
     from multiprocessing.pool import Pool
@@ -145,7 +144,6 @@ if __name__ == '__main__':
         gui_arg = '-b'
     else:
         gui_arg = ''
-
 
     pool = Pool(processes=mp_max)
     
