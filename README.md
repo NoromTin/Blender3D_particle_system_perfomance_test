@@ -20,7 +20,7 @@ Quick start:
    [blender dir] \ [blender ver] \python\bin\python -m pip install [libs for scene_*.py]
    Win: "c:\Program Files\Blender Foundation\Blender 3.5\3.5\python\bin\python -m pip install [libs for scene_*.py]
 3. configure bench settings in file bench_start.py (blender path, MP usage, info string vars for result file)
-4. run bench_start_win.py
+4. run bench_start.py
 5. read result in console or csv
 6. you could send result to aninelo@gmail.com with "blender bench" subject (i'll share it) OR push it to this rep with your branch
 
