@@ -102,6 +102,6 @@ My calculations are very CPU-hungry, and this is not one-time project.
 So I started developing my home supercomputer (Beowolf cluster).
 And you know it is an economic problem.
 Part of Blender code, that i made and i interest for, don't contain most of the modern CPU instructions. So common benchmarks do not fit this goal.
-So i wrote it!)  
+So i wrote this one!)  
 I think it turned out to be a good universal tool)
 
