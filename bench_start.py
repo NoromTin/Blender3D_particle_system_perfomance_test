@@ -49,7 +49,7 @@ mp_factor   = 1
 tn_min      = 1   
 tn_max    = 'auto' # 'auto' - Automatic os detect, incl hyper-threading.
 # tn_max      = 2
-tn_max_limit = 180  # tn_max limited by 8, because scalability 'th' for more then 4 core is not effective. Preserving time for large multi-core systems
+# tn_max_limit = 8  # tn_max limited by 8, because scalability 'th' for more then 4 core is not effective. Preserving time for large multi-core systems
 # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
 tn_factor   = 1 
 
