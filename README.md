@@ -1,6 +1,6 @@
 # Blender UI no GUI perfomance benchmark
 Perfomance test for Blender (www.blender.org) UI without GUI (mainly for particle subsystem)
-Multiprocessing core scalability.
+Multiprocessing core scalability. Linux, Windows, Mac compatible
 
 Contain tests:
 1. particle_movement    - Spreading particles in empty space
@@ -9,8 +9,8 @@ Contain tests:
 
 Requirements:
 1. .py file editing experience
-1. installed Blender app (tested on Blender v3.5, v4.0)
-2. 400mb ram per logical core (num of cores used in test can be limited with configuration, but all cores access running is prefferable)
+2. installed Blender app (tested on Blender v3.5, v4.0)
+3. 400mb ram per logical core (num of cores used in test can be limited with configuration, but all cores access running is prefferable)
 
 Quick start:
 1. check os python 3 libs
@@ -60,7 +60,7 @@ Result RAW structure:
 5. num instances            - int (1 for bench_mp_type ='thread')
 6. list of tuples           - float [(time_start, time_end),] in seconds for every instance
 
-Result analisys structure:
+Result analysis structure:
 1. cpu_name     - string [large cpu name]                           (autodetected, from cpuinfo import get_cpu_info)
 2. hardware     - string [hardware platform (brand, mb, ram etc.)]  (added manually, hardware var in bench_start.py)
 3. bench_env    - string ['bare','vm*']                             (added manually, 'bare' for real host, 'vm [brand] [hypervisor os] [hypervisor cpu if needed]' )
@@ -77,6 +77,7 @@ Result analisys structure:
 9. med_time     - float  [mediana time, sec]                        (calculated)
 10. min_time    - float  [minimal time, sec]                        (calculated)
 11. max_time    - float  [maximum time, sec]                        (calculated)
+
 
 TODO:
 1. TODO solid and term refactoring
