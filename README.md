@@ -33,12 +33,23 @@ What does this benchmark do?
 2. Launch a pool of blender instances without a GUI (the number depends on the number of cores at the current iteration)
 3. Each blender:
       runs the *.py script passed to it
-          Builds a stage
-          Waits for a start signal from the main thread
-          Does measurable work
-          Send measurements
+          Builds a scene,
+          Waits for a start signal from the main thread,
+          Does measurable work,
+          Send measurements,
       exit Blender
 4. Prepare the next iteration and run the pool again.
+
+Why this might be interesting:
+1. Check the performance scalability of the UI modules.
+2. Check Performance development between blender versions. 
+3. Compare processor performance for UX.
+
+Why is this interesting to the author:
+1. Collecting results for different types of processors
+2. Comparing them with the results of my special modified version of blender.
+3. Comparing it with famous CPU tests such as GeekBench, Cinebench.
+4. Perform calculations and make decisions for my Beowolf cluster (well parallelized scientific calculations)
 
 
 Result RAW structure:
