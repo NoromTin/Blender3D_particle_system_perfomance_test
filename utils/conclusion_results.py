@@ -1,4 +1,4 @@
-### read csv result files from ../result, and write max cpu power to ../result/conclusion.csv
+### recreate conclusion.csv (max cpu power) (../result/conclusion.csv ) from results csv (../result/*)
 import os
 
 from pandas import read_csv
