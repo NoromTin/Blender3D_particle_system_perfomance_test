@@ -14,11 +14,11 @@ Requirements:
 
 Quick start:
 1. check os python 3 libs
-1. Win: pip install psutil py-cpuinfo
-1. linux: apt install python3-pip && pip install psutil py-cpuinfo
+   Win: pip install psutil py-cpuinfo
+   Linux: apt install python3-pip && pip install psutil py-cpuinfo
 2. check blender python libs
-2. [blender dir] \ [blender ver] \python\bin\python -m pip install [libs for scene_*.py]
-2. Win: "c:\Program Files\Blender Foundation\Blender 3.5\3.5\python\bin\python -m pip install [libs for scene_*.py]
+   [blender dir] \ [blender ver] \python\bin\python -m pip install [libs for scene_*.py]
+   Win: "c:\Program Files\Blender Foundation\Blender 3.5\3.5\python\bin\python -m pip install [libs for scene_*.py]
 3. configure bench settings in file bench_start.py (blender path, MP usage, info string vars for result file)
 4. run bench_start_win.py
 5. read result in console or csv
@@ -28,7 +28,7 @@ Wanted result data for:
 1. AMD Threadripper, Intel Xeons, AMD Ryzen, Apple CPUs, Exotic CPUs, and others)
 
 
-What does this benchmark do?
+What does this benchmark do:
 1. Prepares synchronization
 2. Launch a pool of blender instances without a GUI (the number depends on the number of cores at the current iteration)
 3. Each blender:
