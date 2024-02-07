@@ -1,8 +1,7 @@
-### read csv result files from .././result, and write max cpu power stat to ../result/conclusion.csv
+### read csv result files from ../result, and write max cpu power to ../result/conclusion.csv
 import os
-import csv
 
-from pandas import read_csv, Grouper
+from pandas import read_csv
 import numpy as np
 
 src_dir = '../result/'
