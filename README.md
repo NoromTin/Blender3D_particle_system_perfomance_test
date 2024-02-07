@@ -25,7 +25,21 @@ Quick start:
 6. you could send result to aninelo@gmail.com OR push it to this rep with your branch
 
 Wanted result data for:
-1. AMD Threadripper, Intel Xeons, AMD Ryzen, Exotic CPUs, and others)
+1. AMD Threadripper, Intel Xeons, AMD Ryzen, Apple CPUs, Exotic CPUs, and others)
+
+
+What does this benchmark do?
+1. Prepares synchronization
+2. Launch a pool of blender instances without a GUI (the number depends on the number of cores at the current iteration)
+3. Each blender:
+      runs the *.py script passed to it
+          Builds a stage
+          Waits for a start signal from the main thread
+          Does measurable work
+          Send measurements
+      exit Blender
+4. Prepare the next iteration and run the pool again.
+
 
 Result RAW structure:
 1. os_type                  - string
