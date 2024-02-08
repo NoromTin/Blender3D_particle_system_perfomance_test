@@ -78,7 +78,7 @@ Result analysis structure:
 8. test_type    - string ['particle_movement','particle_collision','empty_play'] (autodetected, test_type_list)
 4. mp_type      - string ['mp','mt']                                (autodetected, mp_type_list)
 5. core_num     - int    [number of cores used in current test]     (autodetected, HT included logical cores)
-6. cpu_rating   - float  [cpu compute rating in this test]          (calculated, all tests complexity needed to be scale for around the same one core cpu power)
+6. cpu_rating   - float  [cpu compute rating in this test]          (calculated)
 7. core_rating  - float  [core efficiency]                          (calculated)
 8. avg_time     - float  [average time, sec]                        (calculated)
 9. med_time     - float  [mediana time, sec]                        (calculated)
