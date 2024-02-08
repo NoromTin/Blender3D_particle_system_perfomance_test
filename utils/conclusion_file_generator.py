@@ -8,18 +8,14 @@ src_dir = '../result/'
 dst_dir = '../result/'
 dst_filename = 'conclusion.csv'
 
-# exlude dst filename for same dir usage
-src_filename_exclude = ['conclusion.csv',]
-
-src_filename = os.listdir(src_dir)
-# exlude dst filename for same dir usage
-src_filename = list( set(src_filename).difference(set(src_filename_exclude)) )
-
 dst_file_path = dst_dir + dst_filename
 
-# remove old
+# remove old conclusion file
 if os.path.exists(dst_file_path):
   os.remove(dst_file_path)
+
+src_filename = os.listdir(src_dir)
+
   
 need_header = True
 for filename in src_filename:

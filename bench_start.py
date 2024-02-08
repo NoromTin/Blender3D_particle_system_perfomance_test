@@ -10,7 +10,8 @@ from multiprocessing import set_start_method
 ### config begin
 ###
 
-hardware        = 'Mac Book Pro 2018 32GRam'
+hardware        = ''
+# hardware        = 'Mac Book Pro 2018 32GRam'
 bench_env       = 'bare'
 # bench_env = 'vm virtual box on Win10 host'
 # bench_env = 'vm ec2'
@@ -46,10 +47,13 @@ mp_factor   = 1
 
 # 'th' settings 
 # cpu(core) num
-tn_min      = 1   
-tn_max    = 'auto' # 'auto' - Automatic os detect, incl hyper-threading.
+tn_min      = 1
+
+# tn_max can be limited by 8, because scalability 'th' for more then 4 core is not effective. Preserving bench time for large multi-core systems, if needed
+# 'auto' - Automatic os detect, incl hyper-threading.
+tn_max    = 'auto'
+
 # tn_max      = 2
-tn_max_limit = 180  # tn_max can be limited by 8, because scalability 'th' for more then 4 core is not effective. Preserving time for large multi-core systems, if needed
 # multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
 tn_factor   = 1 
 
@@ -138,7 +142,7 @@ if __name__ == '__main__':
     if mp_max == 'auto':
         mp_max = cpu_count() * mp_factor
     if tn_max == 'auto':
-        tn_max = min(cpu_count() * tn_factor, tn_max_limit)
+        tn_max = cpu_count() * tn_factor
 
     if not is_gui_debug:
         gui_arg = '-b'
