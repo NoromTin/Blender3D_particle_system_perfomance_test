@@ -48,7 +48,7 @@ What does this benchmark do:
 4. Prepare the next iteration and run the pool again.
 
 Why this might be interesting:
-1. Check the performance scalability of the UI modules.
+1. Check the performance scalability of the UX modules.
 2. Check Performance development between blender versions. 
 3. Compare processor performance for UX.
 
@@ -56,7 +56,7 @@ Why is this interesting to the author:
 1. Collecting results for different types of processors
 2. Comparing them with the results of my special modified version of Blender.
 3. Comparing it with famous CPU tests such as GeekBench, Cinebench.
-4. Perform calculations and make decisions for my Beowolf cluster (well parallelized scientific calculations)
+4. Perform calculations and make decisions for my computing stack (well parallelized scientific calculations)
 
 
 Result RAW structure:
