@@ -1,8 +1,8 @@
 # Blender UI no GUI perfomance benchmark
-Perfomance test for Blender (www.blender.org) UI without GUI (mainly for particle subsystem)
-Multiprocessing core scalability. Linux, Windows, Mac compatible
-Results are collected in ./result
-Can be adopted for diiferent tools
+Perfomance test for Blender (www.blender.org) UI without GUI (mainly for particle subsystem).
+Multiprocessing core scalability. Linux, Windows, Mac compatible.
+Results are collected in "./result".
+Can be adopted for diiferent tools.
 
 Contain tests:
 1. particle_movement    - Spreading particles in empty space
@@ -19,27 +19,27 @@ Quick start:
    Win: pip install psutil py-cpuinfo
    Linux: apt install python3-pip && pip install psutil py-cpuinfo
 2. check blender python libs
-   [blender dir] \ [blender ver] \python\bin\python -m pip install [libs for scene_*.py]
-   Win: "c:\Program Files\Blender Foundation\Blender 3.5\3.5\python\bin\python -m pip install [libs for scene_*.py]
+   [blender dir] \ [blender ver] \python\bin\python -m pip install [libs for scene_*.py],
+   for Win: "c:\Program Files\Blender Foundation\Blender 3.5\3.5\python\bin\python -m pip install [libs for scene_*.py]
 3. configure bench settings in file bench_start.py (blender path, MP usage, info string vars for result file)
 4. run bench_start.py
 5. read result in console or csv
 6. you could send result to aninelo@gmail.com with "blender bench" subject (i'll share it) OR push it to this rep with your branch
 
 Wanted result data for:
-1. AMD Threadripper, Intel Xeons, AMD Ryzen, Apple CPUs, Exotic CPUs, and others)
+1. AMD Threadripper, Intel Xeons, AMD Ryzen, Apple CPUs, Exotic CPUs, and others
 
 
 What does this benchmark do:
 1. Prepares synchronization
 2. Launch a pool of blender instances without a GUI (the number depends on the number of cores at the current iteration)
 3. Each blender:
-      runs the *.py script passed to it
-          Builds a scene,
-          Waits for a start signal from the main thread,
-          Does measurable work,
-          Send measurements,
-      exit Blender
+    runs the *.py script passed to it,
+        Builds a scene,
+        Waits for a start signal from the main thread,
+        Does measurable work,
+        Send measurements,
+    exit Blender
 4. Prepare the next iteration and run the pool again.
 
 Why this might be interesting:
@@ -99,11 +99,11 @@ HISTORY(WHY):
 
 I did some Blender modification for my scientific calculation.
 Main modified part is particle system.
-(logging, some precalculations, FLOAT --> DOUBLE, simplifiing structures, cleaning, disable heavy functions I don't need, fixes, etc..)
+(logging, some precalculations, FLOAT --> DOUBLE, simplifying structures, cleaning, disable heavy functions that I don't need, fixes, etc..)
 My calculations are very CPU-hungry, and this is not one-time project.
-So I started developing my home supercomputer (Beowolf cluster).
+So I started developing my home computing stack.
 And you know it is an economic problem.
 Part of Blender code, that i made and i interest for, don't contain most of the modern CPU instructions. So common benchmarks do not fit this goal.
-So i wrote this one!)  
-I think it turned out to be a good universal tool)
+And i wrote this one. 
+I think it turned out to be a good universal tool
 
