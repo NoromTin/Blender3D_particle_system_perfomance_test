@@ -242,7 +242,6 @@ if __name__ == '__main__':
             print(f'test_type : {test[1]:9}  mp_type : {test[0]:3}  core_num : {test[3]}  cpu_rating : {test[4]:.4f}  core_rating : {test[5]:.4f}  avg_time : {test[6]:.4f}  med_time : {test[7]:.4f}  min_time : {test[8]:.4f}  max_time : {test[9]:.4f}')
             
     if out_to_csv:
-        # raw
         csv_file_name = cpu_name.replace(" ", "_") + '__' + os_type + '__v' + blender_version.replace('.','_') + '__' + bench_hash + '.csv'
         with open(csv_file_dir + csv_file_name, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile #, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL
