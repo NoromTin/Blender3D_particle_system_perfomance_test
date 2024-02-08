@@ -4,6 +4,11 @@ Multiprocessing core scalability. Linux, Windows, Mac compatible.
 Results are collected in "./result".
 Can be adopted for diiferent tools.
 
+Project advantages:
+1. Extenssibility. You can add your personal test for special case or tool.
+2. Scalability. For huge scenes, you'll get point of view how effective concrete instrument.
+3. Result is analitical oriented (csv). So you able to play with pivot table.
+
 Contain tests:
 1. particle_movement    - Spreading particles in empty space
 2. particle_collision   - Spreading and continously reflecting in compressed conditions (sphere)
