@@ -48,7 +48,7 @@ Why this might be interesting:
 
 Why is this interesting to the author:
 1. Collecting results for different types of processors
-2. Comparing them with the results of my special modified version of blender.
+2. Comparing them with the results of my special modified version of Blender.
 3. Comparing it with famous CPU tests such as GeekBench, Cinebench.
 4. Perform calculations and make decisions for my Beowolf cluster (well parallelized scientific calculations)
 
