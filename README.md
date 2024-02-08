@@ -2,6 +2,7 @@
 Perfomance test for Blender (www.blender.org) UI without GUI (mainly for particle subsystem)
 Multiprocessing core scalability. Linux, Windows, Mac compatible
 Results are collected in ./result
+Can be adopted for diiferent tools
 
 Contain tests:
 1. particle_movement    - Spreading particles in empty space
