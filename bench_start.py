@@ -10,7 +10,7 @@ from multiprocessing import set_start_method
 ### config begin
 ###
 
-hardware        = ''
+hardware        = 'standart'
 # hardware        = 'Mac Book Pro 2018 32GRam'
 bench_env       = 'bare'
 # bench_env = 'vm virtual box on Win10 host'
