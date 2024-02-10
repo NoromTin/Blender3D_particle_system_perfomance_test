@@ -1,8 +1,9 @@
 # Blender UI no GUI perfomance benchmark
-Perfomance test for Blender (www.blender.org) UI without GUI (mainly for particle subsystem).
-Multiprocessing core scalability. Linux, Windows, Mac compatible.
-Results are collected in "./result".
-Can be adopted for diiferent tools.
+1. Perfomance test for Blender (www.blender.org) UI without GUI (mainly for particle subsystem).
+2. Multiprocessing core scalability. Linux, Windows, Mac compatible.
+3. Results are collected in "./result/".
+4. Consolidated result in "./result_consolidated.csv:
+5. Can be adopted for diiferent tools.
 
 Project advantages:
 1. Extenssibility. You can add your personal test for special case or tool.
