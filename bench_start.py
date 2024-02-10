@@ -10,6 +10,7 @@ from multiprocessing import set_start_method
 ### config begin
 ###
 
+# info strings, dont left it empty
 hardware        = 'standart'
 # hardware        = 'Mac Book Pro 2018 32GRam'
 bench_env       = 'bare'
