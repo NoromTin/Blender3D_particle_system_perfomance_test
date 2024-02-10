@@ -35,7 +35,7 @@ Quick start:
 1. apt-get install -y libxrender-dev libxxf86vm-dev libxfixes-dev libxi6 libxkbcommon-dev libsm6 libgl1-mesa-glx 
 2. snap install blender --classic
 
-Wanted result data for:
+Wanted results data for:
 1. AMD Threadripper, Intel Xeons, AMD Ryzen, Apple CPUs, Exotic CPUs, and others
 
 
