@@ -5,8 +5,8 @@ from pandas import read_csv
 import numpy as np
 
 src_dir = '../result/'
-dst_dir = '../result/'
-dst_filename = 'conclusion.csv'
+dst_dir = '../'
+dst_filename = 'main_conclusion.csv'
 
 dst_file_path = dst_dir + dst_filename
 
