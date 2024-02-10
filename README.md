@@ -31,9 +31,9 @@ Quick start:
 5. read result in console or csv
 6. you could send result to aninelo@gmail.com with "blender bench" subject (i'll share it) OR push it to this rep with your branch
 
-*****helper: Ubuntu without X shell Blender install process:
-apt-get install -y libxrender-dev libxxf86vm-dev libxfixes-dev libxi6 libxkbcommon-dev libsm6 libgl1-mesa-glx 
-snap install blender --classic
+*****Ubuntu without desktop shell Blender installation  process:
+1. apt-get install -y libxrender-dev libxxf86vm-dev libxfixes-dev libxi6 libxkbcommon-dev libsm6 libgl1-mesa-glx 
+2. snap install blender --classic
 
 Wanted result data for:
 1. AMD Threadripper, Intel Xeons, AMD Ryzen, Apple CPUs, Exotic CPUs, and others
