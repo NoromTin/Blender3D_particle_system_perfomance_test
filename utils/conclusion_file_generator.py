@@ -6,7 +6,7 @@ import numpy as np
 
 src_dir = '../result/'
 dst_dir = '../'
-dst_filename = 'main_conclusion.csv'
+dst_filename = 'result_consolidated.csv'
 
 dst_file_path = dst_dir + dst_filename
 
