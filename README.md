@@ -10,7 +10,7 @@ Project advantages:
 2. Not ordinary scalability test. For huge scenes, you'll get point of view how effective concrete instrument.
 3. Result is analitical oriented (csv). So you able to play with pivot table.
 
-Contain tests:
+Now contains these tests:
 1. particle_movement    - Spreading particles in empty space
 2. particle_collision   - Spreading and continously reflecting in compressed conditions (sphere)
 3. empty_play           - just playing in empty scene
