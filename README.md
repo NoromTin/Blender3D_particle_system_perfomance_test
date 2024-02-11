@@ -6,9 +6,10 @@
 5. Can be adopted for diiferent tools.
 
 Project advantages:
-1. Extenssibility. You can add your personal test for special case or tool.
+1. Extenssibility. You can add your personal test that can be written with Python.
 2. Not ordinary scalability test. For huge scenes, you'll get point of view how effective concrete instrument.
-3. Result is analitical oriented (csv). So you able to play with pivot table.
+3. CPU scalibility result. Some time all core usage bring worst result instead of limitet number of threads.
+4. Result is analitical oriented (csv). So you able to play with pivot table.
 
 Now contains these tests:
 1. particle_movement    - Spreading particles in empty space
