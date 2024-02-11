@@ -163,6 +163,7 @@ if __name__ == '__main__':
         
         IPC_READY_recv       = Listener(IPC_addr_worker_ready)
         
+        # running workers
         r = pool.starmap_async(start_worker, args_list)
         
         # IPC READY msg from workers
@@ -185,7 +186,7 @@ if __name__ == '__main__':
         r.wait()
         return calc_result
         
-    ### start bench, starting pool for every bench combinations
+    ### starting pool for every bench combinations
     result = []
     
     for test_type in test_type_list:
@@ -225,7 +226,7 @@ if __name__ == '__main__':
             agg_min = min(agg_min, mp_time)
             agg_max = max(agg_max, mp_time)
             
-        # yep to dirty to get blender version from every run, but it's simple, that made separeate process for
+        # yep to dirty to get blender version from every run, but it's simple than made separeate process for
         blender_version = rec[1][0][0]
         agg_avg /= len(rec[1])
         agg_med = median(mp_time_list)
