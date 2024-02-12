@@ -35,6 +35,7 @@ test_type_list = [
 # 'mp' - Multi processing. Multiple workers(blender instances) every with 1 core, 
 # 'th' - Threading. One blender instance, but start with different num of core. 
 #  There is no middle setting for test, like 2 instance with 2 thread each. Think no case for that
+#  As practice has shown, taking the number of cores by 1 more than the maximum really works and gives a small increase
 mp_type_list = [
             'mp'
             ,'th'
@@ -42,15 +43,13 @@ mp_type_list = [
 
 # 'mp' cpu(core) num
 mp_min      = 1
-# As practice has shown, taking the number of cores by 1 more than the maximum really works and gives a small increase
-mp_max      = 'auto' # 'auto' - Automatic os detect, incl hyper-threading PLUS ONE (!).  
+mp_max      = 'auto' # 'auto' - Automatic os detection
 # mp_max = 1
 
 # 'th' cpu(core) num
 tn_min      = 1
-# tn_max can be limited by 8, because scalability 'th' for more then 4 core usualy is not effective. Preserving bench time for large multi-core systems, if needed
-# As practice has shown, taking the number of cores by 1 more than the maximum really works and gives a small increase
-tn_max    = 'auto' # 'auto' - Automatic os detect, incl hyper-threading PLUS ONE (!).
+# tn_max can be usualy limited by 8, because scalability 'th' for more then 4 core usualy is not effective. Preserving bench time for large multi-core systems, if needed
+tn_max    = 'auto' # 'auto' - Automatic os detection
 # tn_max      = 1
 
 
@@ -137,9 +136,9 @@ if __name__ == '__main__':
     platform_core_num = cpu_count()
     
     if mp_max == 'auto':
-        mp_max = platform_core_num + 1
+        mp_max = platform_core_num
     if tn_max == 'auto':
-        tn_max = platform_core_num + 1
+        tn_max = platform_core_num
         
     bench_max_core_num = max(mp_max,tn_max)
 

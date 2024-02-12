@@ -106,6 +106,9 @@ COMPLETED:
 6. Conclusion analysys
 7. Blender version
 
+WHATS NEW
+1.0.1 - IPC, sync, worm up impruvment and refactoring. Tests time was decreased for ~two times (because better sync)
+
 HISTORY(WHY):
 
 I did some Blender modification for my scientific calculation.

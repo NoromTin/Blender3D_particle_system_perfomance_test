@@ -1,7 +1,13 @@
 cpu,platform,platform_core_num,bench_env,os_type,os_release,os_version,blender_version,bench_version,bench_max_core_num,bench_hash,test_type,mp_type,max_cpu_rating,max_cpu_rating_core_num
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,empty_play,mp,3.224295217,9
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,empty_play,th,0.496520289,9
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_collision,mp,3.148440187,9
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_collision,th,0.503778364,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_movement,mp,2.351768888,9
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_movement,th,0.755286396,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,empty_play,mp,3.224295217494216,9
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,empty_play,th,0.496520289031047,9
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_collision,mp,3.1484401866335485,9
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_collision,th,0.5037783641553922,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_movement,mp,2.3517688877889515,9
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_movement,th,0.7552863964843732,8
+Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_1,16,2797feb7cac34f01,empty_play,mp,6.997439958,13
+Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_1,16,2797feb7cac34f01,empty_play,th,1.084072602,11
+Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_1,16,2797feb7cac34f01,particle_collision,mp,4.45246796,16
+Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_1,16,2797feb7cac34f01,particle_collision,th,0.57054462,10
+Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_1,16,2797feb7cac34f01,particle_movement,mp,4.484857404,13
+Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_1,16,2797feb7cac34f01,particle_movement,th,1.151713688,11
