@@ -93,7 +93,8 @@ bpy.context.scene.camera = camera_object
 ### warm up ~ 1.5 sec
 IPC_RECEIVER_START_WARM_UP = Listener(('localhost', IPC_base_port + 3 + process_num))
 IPC_SENDER_WARM_UP_READY    = Client(('localhost', IPC_base_port))
-IPC_RECEIVER_START_WARM_UP.accept()
+conn = IPC_RECEIVER_START_WARM_UP.accept()
+conn.close()
 a = 1.0
 for i in range(7500000):
     a *= 3.1415
@@ -102,7 +103,7 @@ for i in range(7500000):
 # bench
 IPC_RECEIVER_START_BENCH = Listener(('localhost', IPC_base_port + 6003 + process_num)) # 6000 - manual offset (nondirect limit for core num)
 IPC_SENDER_BENCH_READY      = Client(('localhost', IPC_base_port + 1))
-IPC_RECEIVER_START_BENCH.accept()
+conn = IPC_RECEIVER_START_BENCH.accept()
 # skip emission and 1st work frame for proper init
 bpy.context.scene.frame_set(1)
 # "playing"
@@ -110,7 +111,7 @@ time_start = time()
 for i in range(2, scene_frame_end + 1):
     bpy.context.scene.frame_set(i)
 time_end = time()
-
+conn.close()
 # sending result
 IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
 IPC_SENDER_RESULT.send((blender_version, time_start, time_end))

@@ -160,9 +160,11 @@ if __name__ == '__main__':
         
         worker_num = len(args_list)
         
-        def wait_workers_ready_signal(listener_arr):
+        def wait_workers_ready_signal(listener):
             for i in range (worker_num):
-                msg = listener_arr.accept()
+                conn = listener.accept()
+                conn.close()
+                
 
         # preparing listeners and senser
         IPC_RECEIVER_WARM_UP_READY = Listener(('localhost', IPC_base_port))
@@ -178,12 +180,17 @@ if __name__ == '__main__':
 
         ### bench
         wait_workers_ready_signal(IPC_RECEIVER_BENCH_READY)
+        
+        
+        
         IPC_SENDER_START_BENCH_arr = [Client(('localhost', IPC_base_port + 6003 + i)) for i in range(1, worker_num + 1)]
         
         # get RESULT from workers
         calc_result = []
         for i in range (worker_num):
-            calc_result.append(IPC_RECEIVER_RESULT.accept().recv())
+            conn = IPC_RECEIVER_RESULT.accept()
+            calc_result.append(conn.recv())
+            conn.close()
         r.wait()
 
         IPC_RECEIVER_WARM_UP_READY.close()
