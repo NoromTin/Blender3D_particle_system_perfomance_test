@@ -1,6 +1,6 @@
 from sys import platform
 import os
-from time import time
+from time import time, sleep
 
 from multiprocessing.connection import Listener, Client
 from multiprocessing import set_start_method
@@ -24,9 +24,9 @@ blender_path_Mac = '/Applications/Blender.app/Contents/MacOS/Blender'
 # test type, each have separate scene python file
 # all scenes complexity scaled for around same cpu rating for a one core test
 test_type_list = [
-            'particle_movement', 
-            'particle_collision',
-            'empty_play'
+            'particle_movement'
+            ,'particle_collision'
+            ,'empty_play'
             ]
 
 # Multiprocessing type used in bench
@@ -34,29 +34,23 @@ test_type_list = [
 # 'th' - Threading. One blender instance, but start with different num of core. 
 #  There is no middle setting for test, like 2 instance with 2 thread each. Think no case for that
 mp_type_list = [
-            'mp',
-            'th'
+            'mp'
+            ,'th'
             ]
 
-# 'mp' settings 
-# cpu(core) num
+# 'mp' cpu(core) num
 mp_min      = 1
-mp_max      = 'auto' # 'auto' - Automatic os detect, incl hyper-threading
-# mp_max = 2
-# multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
-mp_factor   = 1    
+# As practice has shown, taking the number of cores by 1 more than the maximum really works and gives a small increase
+mp_max      = 'auto' # 'auto' - Automatic os detect, incl hyper-threading PLUS ONE (!).  
+# mp_max = 1
 
-# 'th' settings 
-# cpu(core) num
+# 'th' cpu(core) num
 tn_min      = 1
+# tn_max can be limited by 8, because scalability 'th' for more then 4 core usualy is not effective. Preserving bench time for large multi-core systems, if needed
+# As practice has shown, taking the number of cores by 1 more than the maximum really works and gives a small increase
+tn_max    = 'auto' # 'auto' - Automatic os detect, incl hyper-threading PLUS ONE (!).
+# tn_max      = 1
 
-# tn_max can be limited by 8, because scalability 'th' for more then 4 core is not effective. Preserving bench time for large multi-core systems, if needed
-# 'auto' - Automatic os detect, incl hyper-threading.
-tn_max    = 'auto'
-
-# tn_max      = 2
-# multiplier for overcore bench, for example 2 mean 24 threads for 12 logical cores. Experimental, mostly for incorrect logical cpu num detection 
-tn_factor   = 1 
 
 out_to_console  = True
 out_to_csv      = True
@@ -68,10 +62,11 @@ is_gui_debug    = False # True - running with gui, false - without (default)
 ### config end
 ################################# 
 
-
+bench_verion = '1_0_1'
 IPC_base_port = 6100
-IPC_addr_worker_ready   = ('localhost', IPC_base_port)
-IPC_addr_worker_result  = ('localhost', IPC_base_port + 1)
+
+
+
 
 # os detection
 if platform == "linux" or platform == "linux2":
@@ -135,15 +130,15 @@ if __name__ == '__main__':
     cpu_name = get_cpu_info()['brand_raw']
     os_release = platform.release()
     os_version = platform.version()
-    # additional unique mark for tte result
+    # additional unique mark for the result
     bench_hash = uuid4().hex[0:16]
 
     ### cooking vars ###
     
     if mp_max == 'auto':
-        mp_max = cpu_count() * mp_factor
+        mp_max = cpu_count() + 1
     if tn_max == 'auto':
-        tn_max = cpu_count() * tn_factor
+        tn_max = cpu_count() + 1
 
     if not is_gui_debug:
         gui_arg = '-b'
@@ -161,29 +156,43 @@ if __name__ == '__main__':
         global i_bench
         print(f'bench {i_bench} of  {bench_num}')
         
-        IPC_READY_recv       = Listener(IPC_addr_worker_ready)
+        worker_num = len(args_list)
         
+        def wait_workers_ready_signal(listener_arr):
+            for i in range (worker_num):
+                msg = listener_arr.accept()
+
+        # preparing listeners and senser
+        IPC_RECEIVER_WARM_UP_READY = Listener(('localhost', IPC_base_port))
+        IPC_RECEIVER_BENCH_READY   = Listener(('localhost', IPC_base_port + 1))
+        IPC_RECEIVER_RESULT        = Listener(('localhost', IPC_base_port + 2))
+
         # running workers
         r = pool.starmap_async(start_worker, args_list)
-        
-        # IPC READY msg from workers
-        for i in range (len(args_list)):
-            msg = IPC_READY_recv.accept()
-        sleep(3)
-        
-        # IPC START message to workers
-        IPC_START_sender_arr = [Client(('localhost', IPC_base_port + 2 + i)) for i in range(1, len(args_list) + 1)]
-        
-        for IPC_START_sender in IPC_START_sender_arr:
-            IPC_START_sender.send('')
-        
-        # IPC RESULT get from workers
-        IPC_RESULT_recv = Listener(IPC_addr_worker_result)
-        calc_result = []
-        for i in range (len(args_list)):
-            calc_result.append(IPC_RESULT_recv.accept().recv())
 
+        ### warm up
+        wait_workers_ready_signal(IPC_RECEIVER_WARM_UP_READY)
+        IPC_SENDER_START_WARM_UP_arr = [Client(('localhost', IPC_base_port + 3 + i)) for i in range(1, worker_num + 1)]
+
+        ### bench
+        wait_workers_ready_signal(IPC_RECEIVER_BENCH_READY)
+        IPC_SENDER_START_BENCH_arr = [Client(('localhost', IPC_base_port + 6003 + i)) for i in range(1, worker_num + 1)]
+        
+        # get RESULT from workers
+        calc_result = []
+        for i in range (worker_num):
+            calc_result.append(IPC_RECEIVER_RESULT.accept().recv())
         r.wait()
+
+        IPC_RECEIVER_WARM_UP_READY.close()
+        IPC_RECEIVER_BENCH_READY.close()
+        IPC_RECEIVER_RESULT.close()
+        
+        for IPC_SENDER in IPC_SENDER_START_WARM_UP_arr:
+            IPC_SENDER.close()
+        for IPC_SENDER in IPC_SENDER_START_BENCH_arr:
+            IPC_SENDER.close()
+
         return calc_result
         
     ### starting pool for every bench combinations
@@ -249,8 +258,8 @@ if __name__ == '__main__':
             csv_writer = csv.writer(csvfile #, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL
                                     )
             # headers
-            csv_writer.writerow(['cpu', 'hardware','bench_env', 'os_type', 'os_release', 'os_version', 'blender_version','test_type', 'mp_type', 'core_num', 'cpu_rating','core_rating','avg_time','med_time','min_time','max_time','bench_hash'] )
+            csv_writer.writerow(['cpu', 'hardware','bench_env', 'os_type', 'os_release', 'os_version', 'blender_version','bench_verion','bench_hash','test_type', 'mp_type', 'core_num', 'cpu_rating','core_rating','avg_time','med_time','min_time','max_time'] )
             for test in result_analysis:
-                csv_writer.writerow([cpu_name, hardware, bench_env, os_type, os_release, os_version , blender_version, test[1],test[0],test[3],test[4],test[5],test[6],test[7],test[8],test[9],bench_hash])
+                csv_writer.writerow([cpu_name, hardware, bench_env, os_type, os_release, os_version , blender_version ,bench_verion, bench_hash, test[1],test[0],test[3],test[4],test[5],test[6],test[7],test[8],test[9]])
         print('csv result file: ',csv_file_name)
     

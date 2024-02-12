@@ -41,3 +41,9 @@ Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ub
 Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,particle_collision,th,16,0.2518085797944805
 Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,particle_movement,mp,16,2.1311911268582047
 Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,particle_movement,th,16,0.5828266740184028
+Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,empty_play,mp,64,11.242159784905022
+Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,empty_play,th,64,0.3754490583258209
+Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,particle_collision,mp,64,7.254181060362673
+Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,particle_collision,th,64,0.1829194647921906
+Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,particle_movement,mp,64,4.181854847668772
+Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,particle_movement,th,64,0.3307176415375221
