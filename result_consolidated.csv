@@ -1,49 +1,7 @@
-cpu,hardware,bench_env,os_type,os_release,os_version,blender_version,bench_hash,test_type,mp_type,max_core_num,max_cpu_rating
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",vm virtual box on Win10 host,Lnx,6.5.0-15-generic,#15~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 12 18:54:30 UTC 2,4.0.2,2c44984fa44c4cc1,empty_play,mp,8,1.0073942657019426
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",vm virtual box on Win10 host,Lnx,6.5.0-15-generic,#15~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 12 18:54:30 UTC 2,4.0.2,2c44984fa44c4cc1,empty_play,th,8,0.2741199045839081
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",vm virtual box on Win10 host,Lnx,6.5.0-15-generic,#15~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 12 18:54:30 UTC 2,4.0.2,2c44984fa44c4cc1,particle_collision,mp,8,0.7166097945381916
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",vm virtual box on Win10 host,Lnx,6.5.0-15-generic,#15~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 12 18:54:30 UTC 2,4.0.2,2c44984fa44c4cc1,particle_collision,th,8,0.1892066042303061
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",vm virtual box on Win10 host,Lnx,6.5.0-15-generic,#15~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 12 18:54:30 UTC 2,4.0.2,2c44984fa44c4cc1,particle_movement,mp,8,0.5986542445521044
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",vm virtual box on Win10 host,Lnx,6.5.0-15-generic,#15~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 12 18:54:30 UTC 2,4.0.2,2c44984fa44c4cc1,particle_movement,th,8,0.2012757771122071
-AMD Ryzen 7 4700U with Radeon Graphics,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19044,3.5.1,2effd2a659bb4843,empty_play,mp,8,1.295377372314768
-AMD Ryzen 7 4700U with Radeon Graphics,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19044,3.5.1,2effd2a659bb4843,empty_play,th,8,0.2175336982939157
-AMD Ryzen 7 4700U with Radeon Graphics,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19044,3.5.1,2effd2a659bb4843,particle_collision,mp,8,1.292815589569455
-AMD Ryzen 7 4700U with Radeon Graphics,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19044,3.5.1,2effd2a659bb4843,particle_collision,th,8,0.2188182583662963
-AMD Ryzen 7 4700U with Radeon Graphics,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19044,3.5.1,2effd2a659bb4843,particle_movement,mp,8,0.7467212393620661
-AMD Ryzen 7 4700U with Radeon Graphics,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19044,3.5.1,2effd2a659bb4843,particle_movement,th,8,0.292397796983418
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",bare,Win,10,10.0.19044,4.0.2,e6a54382baa14b72,empty_play,mp,8,1.087978313
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",bare,Win,10,10.0.19044,4.0.2,e6a54382baa14b72,empty_play,th,8,0.210409435
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",bare,Win,10,10.0.19044,4.0.2,e6a54382baa14b72,particle_collision,mp,8,1.1471951
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",bare,Win,10,10.0.19044,4.0.2,e6a54382baa14b72,particle_collision,th,8,0.212373694
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",bare,Win,10,10.0.19044,4.0.2,e6a54382baa14b72,particle_movement,mp,8,0.92134153
-AMD Ryzen 7 4700U with Radeon Graphics,"Redmi Book 14 Ryzen II, 16Gb Ram",bare,Win,10,10.0.19044,4.0.2,e6a54382baa14b72,particle_movement,th,8,0.313648634
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19045,4.0.2,8f4e90ff8f174d25,empty_play,mp,4,0.4101127559909274
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19045,4.0.2,8f4e90ff8f174d25,empty_play,th,4,0.1134764820803617
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19045,4.0.2,8f4e90ff8f174d25,particle_collision,mp,4,0.4438724212933025
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19045,4.0.2,8f4e90ff8f174d25,particle_collision,th,4,0.1180825903359248
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19045,4.0.2,8f4e90ff8f174d25,particle_movement,mp,4,0.3273754881935056
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,Mac Book Pro 2018 32GRam,bare,Win,10,10.0.19045,4.0.2,8f4e90ff8f174d25,particle_movement,th,4,0.1549654667085592
-Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,ac4993b9cd7a45b9,empty_play,mp,12,1.7139003702086335
-Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,ac4993b9cd7a45b9,empty_play,th,12,0.3545781307934957
-Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,ac4993b9cd7a45b9,particle_collision,mp,12,1.1548460776273377
-Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,ac4993b9cd7a45b9,particle_collision,th,12,0.182859749718286
-Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,ac4993b9cd7a45b9,particle_movement,mp,12,1.1355980019032477
-Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,ac4993b9cd7a45b9,particle_movement,th,12,0.3762922220365121
-Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,714148e941bf4b9a,empty_play,mp,16,3.688980221139598
-Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,714148e941bf4b9a,empty_play,th,16,0.4767197692179782
-Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,714148e941bf4b9a,particle_collision,mp,16,2.5145349427596035
-Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,714148e941bf4b9a,particle_collision,th,16,0.2509065840916416
-Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,714148e941bf4b9a,particle_movement,mp,16,1.7976917314484429
-Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,714148e941bf4b9a,particle_movement,th,16,0.4926541823003145
-Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,empty_play,mp,16,4.111750625453782
-Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,empty_play,th,16,0.5173196397871126
-Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,particle_collision,mp,16,2.44658894857614
-Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,particle_collision,th,16,0.2518085797944805
-Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,particle_movement,mp,16,2.1311911268582047
-Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,hosting,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,62f75a8dd4b24a0e,particle_movement,th,16,0.5828266740184028
-Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,empty_play,mp,64,11.242159784905022
-Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,empty_play,th,64,0.3754490583258209
-Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,particle_collision,mp,64,7.254181060362673
-Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,particle_collision,th,64,0.1829194647921906
-Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,particle_movement,mp,64,4.181854847668772
-Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2xCPU Supermicro,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,f17d00152f674bb8,particle_movement,th,64,0.3307176415375221
+cpu,platform,platform_core_num,bench_env,os_type,os_release,os_version,blender_version,bench_version,bench_max_core_num,bench_hash,test_type,mp_type,max_cpu_rating,max_cpu_rating_core_num
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,empty_play,mp,3.224295217,9
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,empty_play,th,0.496520289,9
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_collision,mp,3.148440187,9
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_collision,th,0.503778364,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_movement,mp,2.351768888,9
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_1,9,345213b22a85433b,particle_movement,th,0.755286396,8

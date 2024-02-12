@@ -5,14 +5,16 @@ from time import time, sleep
 from multiprocessing.connection import Listener, Client
 from multiprocessing import set_start_method
 
+# ver 1_0_1
 
 ################################# 
 ### config begin
 ###
 
 # info strings, dont left it empty
-hardware        = 'standart'
-# hardware        = 'Mac Book Pro 2018 32GRam'
+bench_platform        = 'standart'
+# bench_platform        = '2_CPU_Supermicro'
+# bench_platform        = 'Mac Book Pro 2018 32GRam'
 bench_env       = 'bare'
 # bench_env = 'vm virtual box on Win10 host'
 # bench_env = 'vm ec2'
@@ -64,9 +66,6 @@ is_gui_debug    = False # True - running with gui, false - without (default)
 
 bench_verion = '1_0_1'
 IPC_base_port = 6100
-
-
-
 
 # os detection
 if platform == "linux" or platform == "linux2":
@@ -135,10 +134,14 @@ if __name__ == '__main__':
 
     ### cooking vars ###
     
+    platform_core_num = cpu_count()
+    
     if mp_max == 'auto':
-        mp_max = cpu_count() + 1
+        mp_max = platform_core_num + 1
     if tn_max == 'auto':
-        tn_max = cpu_count() + 1
+        tn_max = platform_core_num + 1
+        
+    bench_max_core_num = max(mp_max,tn_max)
 
     if not is_gui_debug:
         gui_arg = '-b'
@@ -258,8 +261,8 @@ if __name__ == '__main__':
             csv_writer = csv.writer(csvfile #, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL
                                     )
             # headers
-            csv_writer.writerow(['cpu', 'hardware','bench_env', 'os_type', 'os_release', 'os_version', 'blender_version','bench_verion','bench_hash','test_type', 'mp_type', 'core_num', 'cpu_rating','core_rating','avg_time','med_time','min_time','max_time'] )
+            csv_writer.writerow(['cpu', 'platform','platform_core_num', 'bench_env', 'os_type', 'os_release', 'os_version', 'blender_version','bench_version','bench_max_core_num','bench_hash','test_type', 'mp_type', 'core_num', 'cpu_rating','core_rating','avg_time','med_time','min_time','max_time'] )
             for test in result_analysis:
-                csv_writer.writerow([cpu_name, hardware, bench_env, os_type, os_release, os_version , blender_version ,bench_verion, bench_hash, test[1],test[0],test[3],test[4],test[5],test[6],test[7],test[8],test[9]])
+                csv_writer.writerow([cpu_name, bench_platform,platform_core_num, bench_env, os_type, os_release, os_version , blender_version ,bench_verion, bench_max_core_num, bench_hash, test[1],test[0],test[3],test[4],test[5],test[6],test[7],test[8],test[9]])
         print('csv result file: ',csv_file_name)
     
