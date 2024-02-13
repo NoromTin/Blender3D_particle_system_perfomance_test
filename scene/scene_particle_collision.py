@@ -9,7 +9,7 @@ process_num = int(args.process_num)
 
 from multiprocessing.connection import Listener, Client
 
-IPC_base_port = 6100
+IPC_base_port = 15000
 
 import bpy
 import blend_render_info

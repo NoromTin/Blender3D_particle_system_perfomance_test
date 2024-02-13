@@ -64,7 +64,7 @@ is_gui_debug    = False # True - running with gui, false - without (default)
 ################################# 
 
 bench_verion = '1_0_1'
-IPC_base_port = 6100
+IPC_base_port = 15000
 
 # os detection
 if platform == "linux" or platform == "linux2":

@@ -10,7 +10,7 @@ parser.add_argument('-pn', '--process_num', default='1')
 args = parser.parse_args(sys.argv[sys.argv.index("--")+1:])
 process_num = int(args.process_num)
 
-IPC_base_port = 6100
+IPC_base_port = 15000
 
 import bpy
 import blend_render_info
