@@ -1,5 +1,5 @@
 import sys
-from time import time
+from time import perf_counter
 
 import argparse
 parser = argparse.ArgumentParser(description='process some integers.')
@@ -37,37 +37,40 @@ bpy.context.scene.frame_end = scene_frame_end
 bpy.types.Scene(bpy.context.scene).use_gravity = False
 bpy.types.Scene(bpy.context.scene).gravity = (0, 0, 0)
 
-### warm up ~ 1.5 sec
-IPC_RECEIVER_START_WARM_UP = Listener(('localhost', IPC_base_port + 3 + process_num))
-IPC_SENDER_WARM_UP_READY    = Client(('localhost', IPC_base_port))
-conn = IPC_RECEIVER_START_WARM_UP.accept()
-conn.close()
-a = 1.0
-for i in range(7500000):
-    a *= 3.1415
-    a /= 3.14149
-
-# bench
-IPC_RECEIVER_START_BENCH = Listener(('localhost', IPC_base_port + 6003 + process_num)) # 6000 - manual offset (nondirect limit for core num)
-IPC_SENDER_BENCH_READY      = Client(('localhost', IPC_base_port + 1))
-conn = IPC_RECEIVER_START_BENCH.accept()
 # skip emission and 1st work frame for proper init
 bpy.context.scene.frame_set(1)
+
+
+# bench
+# messaging 
+IPC_RECEIVER_START_TIME_MESSAGE = Listener(('localhost', IPC_base_port + 3 + process_num))
+IPC_SENDER_WORKER_READY    = Client(('localhost', IPC_base_port))
+IPC_SENDER_WORKER_READY.close()
+conn = IPC_RECEIVER_START_TIME_MESSAGE.accept()
+bench_start_time = conn.recv()
+conn.close()
+IPC_RECEIVER_START_TIME_MESSAGE.close()
+
+# check bench_start_time to early to this worker
+if bench_start_time < perf_counter():
+    print('time start to early for worker!! exit')
+    exit(1)
+
+# waiting for the start time and warming up
+while bench_start_time > perf_counter():
+    a = 1.0
+    a *= 3.1415
+
+# bench test
 # "playing"
-time_start = time()
 for i in range(2, scene_frame_end + 1):
     bpy.context.scene.frame_set(i)
-time_end = time()
-conn.close()
+    
+bench_end_time = perf_counter()
+
 # sending result
 IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
-IPC_SENDER_RESULT.send((blender_version, time_start, time_end))
-
-# closштп connections
-IPC_SENDER_WARM_UP_READY.close()
-IPC_SENDER_BENCH_READY.close()
+IPC_SENDER_RESULT.send((blender_version, bench_start_time, bench_end_time))
 IPC_SENDER_RESULT.close()
-IPC_RECEIVER_START_WARM_UP.close()
-IPC_RECEIVER_START_BENCH.close()
 
 bpy.ops.wm.quit_blender()

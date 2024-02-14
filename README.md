@@ -1,4 +1,4 @@
-# Blender UI no GUI perfomance benchmark v1_0_1
+# Blender UI no GUI perfomance benchmark v1_0_2
 1. Perfomance test for Blender (www.blender.org) UI without GUI (mainly for particle subsystem).
 2. Multiprocessing core scalability. Linux, Windows, Mac compatible.
 3. Results are collected in "./result/*".
@@ -108,6 +108,7 @@ COMPLETED:
 7. Blender version
 
 WHATS NEW
+1.0.2 - IPC sync signal replaced by scheduling, warm up improve
 1.0.1 - IPC, sync, worm up impruvment and refactoring. Tests time was decreased for ~two times (because better sync)
 
 HISTORY(WHY):

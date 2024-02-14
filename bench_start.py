@@ -1,6 +1,6 @@
 from sys import platform
 import os
-from time import time, sleep
+from time import time
 
 from multiprocessing.connection import Listener, Client
 from multiprocessing import set_start_method
@@ -23,7 +23,8 @@ bench_env       = 'bare'
 blender_path_Win = 'C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender'
 blender_path_Lnx = '/snap/blender/4300/blender'
 blender_path_Mac = '/Applications/Blender.app/Contents/MacOS/Blender'
-# test type, each have separate scene python file
+
+# test type, each have separate scene python file
 # all scenes complexity scaled for around same cpu rating for a one core test
 test_type_list = [
             'particle_movement'
@@ -66,6 +67,11 @@ is_gui_debug    = False # True - running with gui, false - without (default)
 bench_verion = '1_0_1'
 IPC_base_port = 15000
 
+# Pause between starting sending start signal from coordinator
+# and time start bench by workers
+# Should be sufficient for translating start message and workers warm up
+signal_gap_worker_start = 1.0 # sec
+
 # os detection
 if platform == "linux" or platform == "linux2":
     os_type = 'Lnx'
@@ -99,12 +105,12 @@ if  __name__ != '__main__':
 def start_worker(*args):
 
     #starting blender separate instance, without GUI(default), with scene py file. Exit when the instance exit
-    test_type  = args[0]
+    test_type   = args[0]
     t_num       = args[1]
-    p_num       = args[2]
+    process_num = args[2]
     gui_arg     = args[3]
     
-    blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(p_num)
+    blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(process_num)
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote
     os.system(cmd)
 
@@ -113,9 +119,9 @@ def start_worker(*args):
 if __name__ == '__main__':
 
     import sys
-    from time import sleep
+    from time import sleep, perf_counter
     from multiprocessing.pool import Pool
-    set_start_method('spawn')
+    
     
     from psutil import cpu_count
     from uuid import uuid4
@@ -141,17 +147,19 @@ if __name__ == '__main__':
         tn_max = platform_core_num
         
     bench_max_core_num = max(mp_max,tn_max)
+    # signal_gap_worker_start_ns = floor(signal_time_worker_start * 10e9)
 
     if not is_gui_debug:
         gui_arg = '-b'
     else:
         gui_arg = ''
-
+        
+    set_start_method('spawn')
     pool = Pool(processes=mp_max)
     
     i_bench = 1
     # progress in console
-    bench_num = len(test_type_list) *  ( (mp_max - mp_min + 1 if 'mp' in mp_type_list else 1) + (tn_max - tn_min + 1 if 'th' in mp_type_list else 1) )
+    bench_num = len(test_type_list) *  ( (mp_max - mp_min + 1 if 'mp' in mp_type_list else 0) + (tn_max - tn_min + 1 if 'th' in mp_type_list else 0) )
     
     def start_pool(args_list):
     
@@ -160,31 +168,32 @@ if __name__ == '__main__':
         
         worker_num = len(args_list)
         
-        def wait_workers_ready_signal(listener):
+        def wait_workers_ready(listener):
             for i in range (worker_num):
                 conn = listener.accept()
                 conn.close()
-                
+                # sleep(0.05)
+            listener.close()
+        
+        def send_start_to_workers(sender_arr):
+            # get_current time and calculate start time for workers
+            worker_start_time = perf_counter() + signal_gap_worker_start
+            for sender in sender_arr:
+                sender.send(worker_start_time)
+                sender.close()
 
         # preparing listeners and senser
-        IPC_RECEIVER_WARM_UP_READY = Listener(('localhost', IPC_base_port))
-        IPC_RECEIVER_BENCH_READY   = Listener(('localhost', IPC_base_port + 1))
-        IPC_RECEIVER_RESULT        = Listener(('localhost', IPC_base_port + 2))
+        IPC_RECEIVER_WORKER_READY   = Listener(('localhost', IPC_base_port))
+        IPC_RECEIVER_RESULT         = Listener(('localhost', IPC_base_port + 2))
 
         # running workers
         r = pool.starmap_async(start_worker, args_list)
+        wait_workers_ready(IPC_RECEIVER_WORKER_READY)
+        
+        ### warm up + bench
+        IPC_SENDER_START_TIME_arr = [Client(('localhost', IPC_base_port + 3 + i)) for i in range(1, worker_num + 1)]
+        send_start_to_workers(IPC_SENDER_START_TIME_arr)
 
-        ### warm up
-        wait_workers_ready_signal(IPC_RECEIVER_WARM_UP_READY)
-        IPC_SENDER_START_WARM_UP_arr = [Client(('localhost', IPC_base_port + 3 + i)) for i in range(1, worker_num + 1)]
-
-        ### bench
-        wait_workers_ready_signal(IPC_RECEIVER_BENCH_READY)
-        
-        
-        
-        IPC_SENDER_START_BENCH_arr = [Client(('localhost', IPC_base_port + 6003 + i)) for i in range(1, worker_num + 1)]
-        
         # get RESULT from workers
         calc_result = []
         for i in range (worker_num):
@@ -192,15 +201,7 @@ if __name__ == '__main__':
             calc_result.append(conn.recv())
             conn.close()
         r.wait()
-
-        IPC_RECEIVER_WARM_UP_READY.close()
-        IPC_RECEIVER_BENCH_READY.close()
         IPC_RECEIVER_RESULT.close()
-        
-        for IPC_SENDER in IPC_SENDER_START_WARM_UP_arr:
-            IPC_SENDER.close()
-        for IPC_SENDER in IPC_SENDER_START_BENCH_arr:
-            IPC_SENDER.close()
 
         return calc_result
         
@@ -212,7 +213,7 @@ if __name__ == '__main__':
      
             if mp_type == 'mp':
                 for mp_num in range(mp_min, mp_max + 1):
-                    args_list = [ (test_type, 1 ,mp_n, gui_arg) for mp_n in range(mp_min, mp_num + 1)]
+                    args_list = [ (test_type, 1 ,mp_n, gui_arg) for mp_n in range(1, mp_num + 1)]
                     result.append( ((mp_type,) + args_list[-1], tuple(start_pool(args_list) )) )
                     i_bench +=1
                     
@@ -238,7 +239,6 @@ if __name__ == '__main__':
         agg_med = None
         mp_time_list = []
         for result_rec in rec[1]:
-            print(result_rec[1], result_rec[2])
             mp_time = result_rec[2] - result_rec[1]
             mp_time_list.append(mp_time)
             agg_avg += mp_time
