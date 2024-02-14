@@ -5,7 +5,7 @@ from time import time
 from multiprocessing.connection import Listener, Client
 from multiprocessing import set_start_method
 
-# ver 1_0_1
+# ver 1_0_2
 
 ################################# 
 ### config begin
@@ -172,7 +172,7 @@ if __name__ == '__main__':
             for i in range (worker_num):
                 conn = listener.accept()
                 conn.close()
-                # sleep(0.05)
+                sleep(0.05)
             listener.close()
         
         def send_start_to_workers(sender_arr):

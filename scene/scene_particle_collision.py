@@ -106,7 +106,7 @@ IPC_RECEIVER_START_TIME_MESSAGE.close()
 
 # check bench_start_time to early to this worker
 if bench_start_time < perf_counter():
-    print('time start to early for worker!! exit')
+    print('time start to early for worker!! increase [signal_gap_worker_start], exit')
     exit(1)
 
 # waiting for the start time and warming up
