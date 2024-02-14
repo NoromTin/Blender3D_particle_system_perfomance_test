@@ -164,6 +164,8 @@ if __name__ == '__main__':
     def start_pool(args_list):
     
         global i_bench
+        
+        print('')
         print(f'bench {i_bench} of  {bench_num}')
         
         worker_num = len(args_list)
@@ -172,7 +174,8 @@ if __name__ == '__main__':
             for i in range (worker_num):
                 conn = listener.accept()
                 conn.close()
-                sleep(0.05)
+                # unintuitive trick for decreasing freezing probablity with a large core systems (~64+)
+                sleep(0.01)
             listener.close()
         
         def send_start_to_workers(sender_arr):
@@ -200,6 +203,7 @@ if __name__ == '__main__':
             conn = IPC_RECEIVER_RESULT.accept()
             calc_result.append(conn.recv())
             conn.close()
+            sleep(0.01) # same as in wait_workers_ready()
         r.wait()
         IPC_RECEIVER_RESULT.close()
 
