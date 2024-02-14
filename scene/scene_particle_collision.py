@@ -89,7 +89,6 @@ for area in bpy.context.screen.areas:
         area.spaces[0].region_3d.view_perspective = 'CAMERA'
 bpy.context.scene.camera = camera_object
 
-
 # skip emission and 1st work frame for proper init
 bpy.context.scene.frame_set(1)
 
