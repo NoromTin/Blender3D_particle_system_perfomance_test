@@ -91,7 +91,7 @@ if  __name__ != '__main__':
     # blender path
     if os_type == 'Win':
         blender_path = blender_path_Win
-        cmd_quote = ''
+        cmd_quote = '"'
         process_name = 'blender.exe'
     elif os_type == 'Lnx':
         blender_path = blender_path_Lnx
@@ -141,7 +141,6 @@ if __name__ == '__main__':
     import sys
     from time import sleep, perf_counter
     from multiprocessing.pool import Pool
-    from multiprocessing import active_children
     
     from psutil import cpu_count
     from uuid import uuid4
@@ -177,7 +176,8 @@ if __name__ == '__main__':
     frieze_cnt = 0
         
     set_start_method('spawn')
-        
+    
+    
     # progress in console
     i_bench = 1
     
@@ -241,12 +241,10 @@ if __name__ == '__main__':
         IPC_RECEIVER_RESULT.close()
         if is_frieze:
             calc_result ='err_pool'
-        #r.wait()
-        pool.close()
+        r.wait()
         pool.terminate()
         pool.join()
-        del pool
-
+ 
         return calc_result
         
     def safe_start_pool(args_list):
