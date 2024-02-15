@@ -85,8 +85,15 @@ bpy.context.scene.camera = camera_object
 bpy.context.scene.frame_set(1)
 
 
+
 # bench
 # messaging 
+
+def send_result(msg):
+    IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
+    IPC_SENDER_RESULT.send(msg)
+    IPC_SENDER_RESULT.close()
+
 IPC_RECEIVER_START_TIME_MESSAGE = Listener(('localhost', IPC_base_port + 3 + process_num))
 IPC_SENDER_WORKER_READY    = Client(('localhost', IPC_base_port))
 IPC_SENDER_WORKER_READY.close()
@@ -97,8 +104,8 @@ IPC_RECEIVER_START_TIME_MESSAGE.close()
 
 # check bench_start_time to early to this worker
 if bench_start_time < perf_counter():
-    print('time start to early for worker!! increase [signal_gap_worker_start], exit')
-    exit(1)
+    send_result('err_timestart')
+    exit()
 
 # waiting for the start time and warming up
 while bench_start_time > perf_counter():
@@ -124,8 +131,6 @@ bench_end_time = perf_counter()
 
 
 # sending result
-IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
-IPC_SENDER_RESULT.send((blender_version, bench_start_time, bench_end_time))
-IPC_SENDER_RESULT.close()
+send_result((blender_version, bench_start_time, bench_end_time))
 
 bpy.ops.wm.quit_blender()

@@ -167,7 +167,6 @@ if __name__ == '__main__':
     set_start_method('spawn')
     pool = Pool(processes=mp_max) #
     
-    
     # progress in console
     i_bench = 1
     
@@ -178,8 +177,8 @@ if __name__ == '__main__':
         global i_bench
         global frieze_cnt
         
-        print('')
-        print(f'bench {i_bench} of  {bench_num}')
+        current_time = time()
+        print(f'bench {i_bench} of  {bench_num}  time left, sec: {(current_time - bench_start_time / i_bench * bench_num)} ')
         
         worker_num = len(args_list)
         
@@ -215,13 +214,17 @@ if __name__ == '__main__':
             conn = IPC_RECEIVER_RESULT.accept()
             res = conn.recv()
             conn.close()
-            if type(res) == str and res == "err_worker":
-                is_frieze = True
+            if type(res) == str and res == 'err_worker':
+                calc_result = res
                 break
+            elif type(res) == str and res == "err_timestart":
+                calc_result = res
+                break
+            
+            
             calc_result.append(res)
         
-        if is_frieze:
-            calc_result ='err_pool'
+
         r.wait()
         IPC_RECEIVER_RESULT.close()
  
@@ -229,10 +232,15 @@ if __name__ == '__main__':
         
     def safe_start_pool(args_list):
         global frieze_cnt
+        global signal_gap_worker_start
         while True:
             bench_result = start_pool(args_list)
-            if type(bench_result) == str and  bench_result == 'err_pool':
+            if type(bench_result) == str and  bench_result == 'err_worker':
                 frieze_cnt += 1
+                print('some proc was friesed, again')
+            elif type(bench_result) == str and  bench_result == 'err_timestart':
+                print('signal_gap_worker_start too small - increased, again')
+                signal_gap_worker_start *= 1.2
             else:
                 break
         return bench_result
@@ -240,7 +248,7 @@ if __name__ == '__main__':
         
     ### starting pool for every bench combinations
     result = []
-    
+    bench_start_time = time()
     for test_type in test_type_list:
         for mp_type in mp_type_list:
      

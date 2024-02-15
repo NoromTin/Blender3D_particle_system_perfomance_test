@@ -43,6 +43,12 @@ bpy.context.scene.frame_set(1)
 
 # bench
 # messaging 
+
+def send_result(msg):
+    IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
+    IPC_SENDER_RESULT.send(msg)
+    IPC_SENDER_RESULT.close()
+
 IPC_RECEIVER_START_TIME_MESSAGE = Listener(('localhost', IPC_base_port + 3 + process_num))
 IPC_SENDER_WORKER_READY    = Client(('localhost', IPC_base_port))
 IPC_SENDER_WORKER_READY.close()
@@ -53,8 +59,8 @@ IPC_RECEIVER_START_TIME_MESSAGE.close()
 
 # check bench_start_time to early to this worker
 if bench_start_time < perf_counter():
-    print('time start to early for worker!! increase [signal_gap_worker_start], exit')
-    exit(1)
+    send_result('err_timestart')
+    exit()
 
 # waiting for the start time and warming up
 while bench_start_time > perf_counter():
@@ -68,9 +74,18 @@ for i in range(2, scene_frame_end + 1):
     
 bench_end_time = perf_counter()
 
+# debug frieze emulation
+# import random
+# if bool(random.getrandbits(1)):
+    # if bool(random.getrandbits(1)):
+        # if bool(random.getrandbits(1)):
+            # if bool(random.getrandbits(1)):
+                # from time import sleep
+                # print('worker freeze ',process_num) 
+                # sleep(1660.0)
+
+
 # sending result
-IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
-IPC_SENDER_RESULT.send((blender_version, bench_start_time, bench_end_time))
-IPC_SENDER_RESULT.close()
+send_result((blender_version, bench_start_time, bench_end_time))
 
 bpy.ops.wm.quit_blender()
