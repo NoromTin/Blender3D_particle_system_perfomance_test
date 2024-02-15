@@ -86,17 +86,21 @@ elif platform == "win32":
 if  __name__ != '__main__':
 
     import subprocess
+    from psutil import process_iter
     
     # blender path
     if os_type == 'Win':
         blender_path = blender_path_Win
         cmd_quote = ''
+        process_name = 'blender.exe'
     elif os_type == 'Lnx':
         blender_path = blender_path_Lnx
         cmd_quote = ''
+        process_name = 'blender'
     elif os_type == 'Mac':
         blender_path = blender_path_Mac
         cmd_quote = ''
+        process_name = 'blender'
     else:
         print('unknown os')
         exit()
@@ -113,16 +117,21 @@ def start_worker(*args):
     blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(process_num)
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote
     #print('cmd 1 ', cmd)
-    subprocess.call(cmd, timeout=worker_health_timeout)#, shell=True)
+    subprocess.call(cmd) #, timeout=worker_health_timeout)#, shell=True)
     #print('cmd 2 ', cmd)
     # os.system(cmd)
     
 def start_watchdog(*args):
     # used for closing IPC connections
     sleep(worker_health_timeout)
+    
+    # kill blender processes
+    for proc in process_iter():
+        if proc.name() == process_name:
+            proc.kill()
+    # send err result for the main process 
     IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
     for i in range(args[0]):
-        # print('wd send err ',i)
         IPC_SENDER_RESULT.send('err_worker')
     IPC_SENDER_RESULT.close()
 
@@ -232,9 +241,9 @@ if __name__ == '__main__':
         IPC_RECEIVER_RESULT.close()
         if is_frieze:
             calc_result ='err_pool'
-        r.wait()
+        #r.wait()
         pool.terminate()
-        pool.join()
+        #pool.join()
 
         return calc_result
         

@@ -112,6 +112,16 @@ for i in range(2, scene_frame_end + 1):
     
 bench_end_time = perf_counter()
 
+# debug freeze emulation
+# import random
+# if bool(random.getrandbits(1)):
+    # if bool(random.getrandbits(1)):
+        # if bool(random.getrandbits(1)):
+            # from time import sleep
+            # print('worker freeze ',process_num) 
+            # sleep(1660.0)
+
+
 # sending result
 IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
 IPC_SENDER_RESULT.send((blender_version, bench_start_time, bench_end_time))
