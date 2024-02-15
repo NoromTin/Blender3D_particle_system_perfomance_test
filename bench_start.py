@@ -14,6 +14,7 @@ from multiprocessing import set_start_method
 # info strings, dont left it empty
 bench_platform        = 'standart'
 # bench_platform        = '2_CPU_Supermicro'
+# bench_platform        = '2_CPU_PowerEdge_R450'
 # bench_platform        = 'Mac Book Pro 2018 32GRam'
 bench_env       = 'bare'
 # bench_env = 'vm virtual box on Win10 host'
@@ -118,7 +119,7 @@ def start_worker(*args):
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote
     
     try:
-        subprocess.call(cmd, shell=True, timeout=worker_health_timeout)
+        subprocess.call(cmd, shell=True, timeout=worker_health_timeout,stdout=subprocess.DEVNULL)
     except subprocess.TimeoutExpired:
         IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
         IPC_SENDER_RESULT.send('err_worker')
