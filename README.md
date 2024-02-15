@@ -108,7 +108,7 @@ COMPLETED:
 7. Blender version
 
 WHATS NEW
-1.0.2.1 - watchdog added
+1.0.2.1 - timeout improvement
 1.0.2 - IPC sync signal replaced by scheduling, warm up improve
 1.0.1 - IPC, sync, worm up impruvment and refactoring. Tests time was decreased for ~two times (because better sync)
 

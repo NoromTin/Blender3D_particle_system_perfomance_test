@@ -117,9 +117,10 @@ bench_end_time = perf_counter()
 # if bool(random.getrandbits(1)):
     # if bool(random.getrandbits(1)):
         # if bool(random.getrandbits(1)):
-            # from time import sleep
-            # print('worker freeze ',process_num) 
-            # sleep(1660.0)
+            # if bool(random.getrandbits(1)):
+                # from time import sleep
+                # print('worker freeze ',process_num) 
+                # sleep(1660.0)
 
 
 # sending result

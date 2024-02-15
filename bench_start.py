@@ -8,7 +8,7 @@ from multiprocessing import set_start_method
 # ver 1_0_2
 
 ################################# 
-### config begin
+### user config
 ###
 
 # info strings, dont left it empty
@@ -53,17 +53,16 @@ tn_min      = 1
 tn_max    = 'auto' # 'auto' - Automatic os detection
 # tn_max      = 1
 
-
 out_to_console  = True
 out_to_csv      = True
 csv_file_dir   = './result/'
 
 is_gui_debug    = False # True - running with gui, false - without (default)
 
-worker_health_timeout = 30.0 # sec
-###
-### config end
+
 ################################# 
+### sys config
+###
 
 bench_verion = '1_0_2'
 IPC_base_port = 15000
@@ -71,6 +70,7 @@ IPC_base_port = 15000
 # Pause between starting send start signals from coordinator
 # and time for start bench for workers
 # Should be sufficient for translating start message and workers warm up
+worker_health_timeout   = 25.0 # sec
 signal_gap_worker_start = 1.0 # sec
 
 # os detection
@@ -91,7 +91,7 @@ if  __name__ != '__main__':
     # blender path
     if os_type == 'Win':
         blender_path = blender_path_Win
-        cmd_quote = '"'
+        cmd_quote = ''
         process_name = 'blender.exe'
     elif os_type == 'Lnx':
         blender_path = blender_path_Lnx
@@ -116,24 +116,13 @@ def start_worker(*args):
     
     blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(process_num)
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote
-    #print('cmd 1 ', cmd)
-    #subprocess.call(cmd) #, timeout=worker_health_timeout)#, shell=True)
-    #print('cmd 2 ', cmd)
-    os.system(cmd)
     
-def start_watchdog(*args):
-    # used for closing IPC connections
-    sleep(worker_health_timeout)
-    
-    # kill blender processes
-    for proc in process_iter():
-        if proc.name() == process_name:
-            proc.kill()
-    # send err result for the main process 
-    IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
-    for i in range(args[0]):
+    try:
+        subprocess.call(cmd, shell=True, timeout=worker_health_timeout)
+    except subprocess.TimeoutExpired:
+        IPC_SENDER_RESULT           = Client(('localhost', IPC_base_port + 2))
         IPC_SENDER_RESULT.send('err_worker')
-    IPC_SENDER_RESULT.close()
+        IPC_SENDER_RESULT.close()
 
 ### for the main process
 if __name__ == '__main__':
@@ -166,7 +155,6 @@ if __name__ == '__main__':
         tn_max = platform_core_num
         
     bench_max_core_num = max(mp_max,tn_max)
-    # signal_gap_worker_start_ns = floor(signal_time_worker_start * 10e9)
 
     if not is_gui_debug:
         gui_arg = '-b'
@@ -176,6 +164,7 @@ if __name__ == '__main__':
     frieze_cnt = 0
         
     set_start_method('spawn')
+    pool = Pool(processes=mp_max) #
     
     
     # progress in console
@@ -187,9 +176,6 @@ if __name__ == '__main__':
     
         global i_bench
         global frieze_cnt
-        # global pool
-        
-        pool = Pool(processes=mp_max + 1) # 1 for watchdog
         
         print('')
         print(f'bench {i_bench} of  {bench_num}')
@@ -200,8 +186,6 @@ if __name__ == '__main__':
             for i in range (worker_num):
                 conn = listener.accept()
                 conn.close()
-                # unintuitive trick for decreasing freezing probablity with a large core systems (~64+)
-                # sleep(0.01)
             listener.close()
         
         def send_start_to_workers(sender_arr):
@@ -210,9 +194,6 @@ if __name__ == '__main__':
             for sender in sender_arr:
                 sender.send(worker_start_time)
                 sender.close()
-
-        # start watchdog
-        r_wd = pool.starmap_async(start_watchdog,[(worker_num,)])
 
         # preparing listeners and senser
         IPC_RECEIVER_WORKER_READY   = Listener(('localhost', IPC_base_port))
@@ -237,13 +218,11 @@ if __name__ == '__main__':
                 is_frieze = True
                 break
             calc_result.append(res)
-            # sleep(0.01) # same as in the wait_workers_ready()
-        IPC_RECEIVER_RESULT.close()
+        
         if is_frieze:
             calc_result ='err_pool'
         r.wait()
-        pool.terminate()
-        pool.join()
+        IPC_RECEIVER_RESULT.close()
  
         return calc_result
         
@@ -276,6 +255,9 @@ if __name__ == '__main__':
                     result.append( ((mp_type,) + args_list[-1], tuple(safe_start_pool(args_list) )) )
                     i_bench +=1
 
+    pool.close()
+    pool.join()
+    
     # result RAW
     if out_to_console:
         print('result raw:')
