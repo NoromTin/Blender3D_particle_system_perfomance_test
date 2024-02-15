@@ -242,8 +242,10 @@ if __name__ == '__main__':
         if is_frieze:
             calc_result ='err_pool'
         #r.wait()
+        pool.close()
         pool.terminate()
         pool.join()
+        del pool
 
         return calc_result
         
