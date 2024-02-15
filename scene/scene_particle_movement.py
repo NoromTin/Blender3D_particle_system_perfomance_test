@@ -112,7 +112,7 @@ for i in range(2, scene_frame_end + 1):
     
 bench_end_time = perf_counter()
 
-# debug freeze emulation
+## debug frieze emulation
 # import random
 # if bool(random.getrandbits(1)):
     # if bool(random.getrandbits(1)):

@@ -117,9 +117,9 @@ def start_worker(*args):
     blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(process_num)
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote
     #print('cmd 1 ', cmd)
-    subprocess.call(cmd) #, timeout=worker_health_timeout)#, shell=True)
+    #subprocess.call(cmd) #, timeout=worker_health_timeout)#, shell=True)
     #print('cmd 2 ', cmd)
-    # os.system(cmd)
+    os.system(cmd)
     
 def start_watchdog(*args):
     # used for closing IPC connections
