@@ -178,7 +178,7 @@ if __name__ == '__main__':
         global frieze_cnt
         
         current_time = time()
-        print(f'bench {i_bench} of  {bench_num}  time left, sec: {(current_time - bench_start_time / i_bench * bench_num)} ')
+        print(f'bench {i_bench} of  {bench_num}  time left, sec: {(current_time - bench_start_time) / i_bench * bench_num}')
         
         worker_num = len(args_list)
         
