@@ -243,7 +243,7 @@ if __name__ == '__main__':
             calc_result ='err_pool'
         #r.wait()
         pool.terminate()
-        #pool.join()
+        pool.join()
 
         return calc_result
         
