@@ -203,8 +203,8 @@ if __name__ == '__main__':
                 sender.close()
 
         # preparing listeners and senser
-        IPC_RECEIVER_WORKER_READY   = Listener(('localhost', IPC_base_port))
-        IPC_RECEIVER_RESULT         = Listener(('localhost', IPC_base_port + 2))
+        IPC_RECEIVER_WORKER_READY   = Listener(address = ('localhost', IPC_base_port), backlog = worker_num)
+        IPC_RECEIVER_RESULT         = Listener(address = ('localhost', IPC_base_port + 2), backlog = worker_num)
 
         # running workers
         r = pool.starmap_async(start_worker, args_list)
