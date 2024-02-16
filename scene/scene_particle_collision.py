@@ -101,7 +101,7 @@ def send_result(msg):
     IPC_SENDER_RESULT.send(msg)
     IPC_SENDER_RESULT.close()
 
-IPC_RECEIVER_START_TIME_MESSAGE = Listener(('localhost', IPC_base_port + 3 + process_num))
+IPC_RECEIVER_START_TIME_MESSAGE = Listener(address=('localhost', IPC_base_port + 3 + process_num), backlog=1)
 IPC_SENDER_WORKER_READY    = Client(('localhost', IPC_base_port))
 IPC_SENDER_WORKER_READY.close()
 conn = IPC_RECEIVER_START_TIME_MESSAGE.accept()
