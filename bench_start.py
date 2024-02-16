@@ -46,15 +46,15 @@ mp_type_list = [
 # 'mp' cpu(core) num
 mp_min      = 1
 mp_max      = 'auto' # 'auto' - Automatic os detection
-# mp_max = 1
+mp_# max = 1
 
 # 'th' cpu(core) num
 tn_min      = 1
 # tn_max can be usualy limited by 8, because scalability 'th' for more then 4 core usualy is not effective. Preserving bench time for large multi-core systems, if needed
 tn_max    = 'auto' # 'auto' - Automatic os detection
-# tn_max      = 1
+tn_# max      = 1
 
-out_to_console  = True
+out_to_console  = False
 out_to_csv      = True
 csv_file_dir   = './result/'
 
@@ -130,6 +130,7 @@ if __name__ == '__main__':
 
     import sys
     from time import sleep, perf_counter
+    from datetime import datetime
     from multiprocessing.pool import Pool
     
     from psutil import cpu_count
@@ -177,8 +178,13 @@ if __name__ == '__main__':
         global i_bench
         global frieze_cnt
         
-        current_time = time()
-        print(f'bench {i_bench} of  {bench_num}  time left, sec: {(current_time - bench_start_time) / i_bench * bench_num}')
+        current_time    = time()
+        time_passed     = current_time - bench_start_time
+        time_passed_str = datetime.utcfromtimestamp( time_passed  ).strftime('%H:%M:%S')# .%f)[:-3] # 
+        time_left       = 0.0 if i_bench == 1 else time_passed / (i_bench-1) * bench_num - time_passed
+        time_left_str   = datetime.utcfromtimestamp( time_left  ).strftime('%H:%M:%S')# .%f)[:-3] # 
+        print(f'bench {i_bench} of  {bench_num}    time passed : {time_passed_str}   time left: {time_left_str}', end='\r', flush=True if i_bench < bench_num else False )
+        if i_bench == bench_num: print()
         
         worker_num = len(args_list)
         
