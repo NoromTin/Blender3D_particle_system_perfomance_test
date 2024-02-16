@@ -51,7 +51,7 @@ mp_max      = 'auto' # 'auto' - Automatic os detection
 # 'th' cpu(core) num
 tn_min      = 1
 # tn_max can be usualy limited by 8, because scalability 'th' for more then 4 core usualy is not effective. Preserving bench time for large multi-core systems, if needed
-tn_max    = 'auto' # 'auto' - Automatic os detection
+tn_max    = 8 # 'auto' # 'auto' - Automatic os detection
 # tn_max      = 1
 
 out_to_console  = False
@@ -72,7 +72,7 @@ IPC_base_port = 15000
 # and time for start bench for workers
 # Should be sufficient for translating start message and workers warm up
 worker_health_timeout   = 25.0 # sec
-signal_gap_worker_start = 1.0 # sec
+signal_gap_worker_start = 0.5 # sec
 
 # os detection
 if platform == "linux" or platform == "linux2":
