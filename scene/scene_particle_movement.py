@@ -1,5 +1,5 @@
 import sys
-from time import perf_counter
+from time import perf_counter, time
 
 import argparse
 from multiprocessing.connection import Listener, Client
@@ -98,22 +98,23 @@ IPC_RECEIVER_START_TIME_MESSAGE = Listener(('localhost', IPC_base_port + 3 + pro
 IPC_SENDER_WORKER_READY    = Client(('localhost', IPC_base_port))
 IPC_SENDER_WORKER_READY.close()
 conn = IPC_RECEIVER_START_TIME_MESSAGE.accept()
-bench_start_time = conn.recv()
+bench_schedule_start_time = conn.recv()
 conn.close()
 IPC_RECEIVER_START_TIME_MESSAGE.close()
 
 # check bench_start_time to early to this worker
-if bench_start_time < perf_counter():
+if bench_schedule_start_time < time():
     send_result('err_timestart')
     exit()
 
 # waiting for the start time and warming up
-while bench_start_time > perf_counter():
+while bench_schedule_start_time > time():
     a = 1.0
     a *= 3.1415
 
 # bench test
 # "playing"
+bench_start_time = perf_counter()
 for i in range(2, scene_frame_end + 1):
     bpy.context.scene.frame_set(i)
     

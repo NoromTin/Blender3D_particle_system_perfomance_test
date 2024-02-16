@@ -46,13 +46,13 @@ mp_type_list = [
 # 'mp' cpu(core) num
 mp_min      = 1
 mp_max      = 'auto' # 'auto' - Automatic os detection
-mp_# max = 1
+# mp_max = 1
 
 # 'th' cpu(core) num
 tn_min      = 1
 # tn_max can be usualy limited by 8, because scalability 'th' for more then 4 core usualy is not effective. Preserving bench time for large multi-core systems, if needed
 tn_max    = 'auto' # 'auto' - Automatic os detection
-tn_# max      = 1
+# tn_max      = 1
 
 out_to_console  = False
 out_to_csv      = True
@@ -129,7 +129,7 @@ def start_worker(*args):
 if __name__ == '__main__':
 
     import sys
-    from time import sleep, perf_counter
+    from time import sleep, perf_counter, time
     from datetime import datetime
     from multiprocessing.pool import Pool
     
@@ -197,7 +197,7 @@ if __name__ == '__main__':
         
         def send_start_to_workers(sender_arr):
             # get_current time and calculate start time for workers
-            worker_start_time = perf_counter() + signal_gap_worker_start
+            worker_start_time = time() + signal_gap_worker_start
             for sender in sender_arr:
                 sender.send(worker_start_time)
                 sender.close()
