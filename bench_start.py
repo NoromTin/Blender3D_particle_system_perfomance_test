@@ -178,6 +178,7 @@ if __name__ == '__main__':
         global i_bench
         global frieze_cnt
         
+        # progress
         current_time    = time()
         time_passed     = current_time - bench_start_time
         time_passed_str = datetime.utcfromtimestamp( time_passed  ).strftime('%H:%M:%S')# .%f)[:-3] # 
