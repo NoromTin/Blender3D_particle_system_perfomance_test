@@ -51,11 +51,12 @@ mp_max      = 'auto' # 'auto' - Automatic os detection
 # 'th' cpu(core) num
 tn_min      = 1
 # tn_max can be usualy limited by 8, because scalability 'th' for more then 4 core usualy is not effective. Preserving bench time for large multi-core systems, if needed
-tn_max    = 8 # 'auto' # 'auto' - Automatic os detection
+tn_max    = 'auto' # 'auto' - Automatic os detection
+tn_max_limit = 8
 # tn_max      = 1
 
-# not best simple algorithm, started from 0 cpu
-use_cpu_affinity_for_workers = False
+# cpu affinity algo ['none','linear']
+cpu_affinity_alg = 'none'
 
 out_to_console  = False
 out_to_csv      = True
@@ -68,7 +69,7 @@ is_gui_debug    = False # True - running with gui, false - without (default)
 ### sys config
 ###
 
-bench_verion = '1_0_3'
+bench_verion = '1_0_2'
 IPC_base_port = 15000
 
 # Pause between starting send start signals from coordinator
@@ -76,6 +77,7 @@ IPC_base_port = 15000
 # Should be sufficient for translating start message and workers warm up
 worker_health_timeout   = 25.0 # sec
 signal_gap_worker_start = 0.5 # sec
+
 
 # platform_core_num = 0
 
@@ -121,7 +123,8 @@ def start_worker(*args):
     gui_arg     = args[3]
     platform_core_num = args[4]
     
-    if use_cpu_affinity_for_workers:
+    # cpu affinity
+    if cpu_affinity_alg = 'linear':
         if t_num == 1:
             Process().cpu_affinity([(process_num-1)%platform_core_num])
         else:
@@ -167,7 +170,7 @@ if __name__ == '__main__':
     if mp_max == 'auto':
         mp_max = platform_core_num
     if tn_max == 'auto':
-        tn_max = platform_core_num
+        tn_max = max(platform_core_num,tn_max_limit)
         
     bench_max_core_num = max(mp_max,tn_max)
 
