@@ -5,12 +5,18 @@ AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubu
 AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_collision,th,0.4217780091284624,1
 AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_movement,mp,11.216459478613166,31
 AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_movement,th,0.6899579045298128,2
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,empty_play,mp,2.9232937953813805,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,empty_play,th,0.4848333462955771,3
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,particle_collision,mp,2.7503042192577185,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,particle_collision,th,0.4968551552945667,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,particle_movement,mp,2.2724952515315664,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,particle_movement,th,0.7421645972632092,8
+AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,empty_play,mp,53.4043809,128
+AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,empty_play,th,0.733138898,2
+AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,particle_collision,mp,36.61366201,128
+AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,particle_collision,th,0.367390198,2
+AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,particle_movement,mp,28.51672579,69
+AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,particle_movement,th,0.721481684,3
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,empty_play,mp,3.1072989064773107,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,empty_play,th,0.4918760037658365,4
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_collision,mp,2.9629493207626734,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_collision,th,0.4949149713786456,7
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_movement,mp,2.3372060534559767,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_movement,th,0.7502452364175705,6
 AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,empty_play,mp,14.926241340638812,12
 AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,empty_play,th,1.7509938290772995,14
 AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_collision,mp,8.396226645279034,16
@@ -29,6 +35,12 @@ Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-ge
 Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,5a27a0307fe8404c,particle_collision,th,0.59687821,9
 Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,5a27a0307fe8404c,particle_movement,mp,4.669958386,12
 Intel(R) Xeon(R) E-2388G CPU @ 3.20GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,5a27a0307fe8404c,particle_movement,th,1.367522316,10
+Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz,2_CPU,112,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,112,d0bb289052284671,empty_play,mp,31.76497817,85
+Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz,2_CPU,112,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,112,d0bb289052284671,empty_play,th,0.515938302,3
+Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz,2_CPU,112,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,112,d0bb289052284671,particle_collision,mp,20.62987552,112
+Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz,2_CPU,112,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,112,d0bb289052284671,particle_collision,th,0.252836368,2
+Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz,2_CPU,112,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,112,d0bb289052284671,particle_movement,mp,17.6017207,91
+Intel(R) Xeon(R) Gold 6330 CPU @ 2.00GHz,2_CPU,112,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,112,d0bb289052284671,particle_movement,th,0.475432316,2
 Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2_CPU_PowerEdge_R450,64,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,64,2055fcdb6990472e,empty_play,mp,26.07284932,49
 Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2_CPU_PowerEdge_R450,64,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,64,2055fcdb6990472e,empty_play,th,0.875223138,8
 Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz,2_CPU_PowerEdge_R450,64,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,64,2055fcdb6990472e,particle_collision,mp,16.61223978,64
