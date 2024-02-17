@@ -124,7 +124,7 @@ def start_worker(*args):
     platform_core_num = args[4]
     
     # cpu affinity
-    if cpu_affinity_alg = 'linear':
+    if cpu_affinity_alg == 'linear':
         if t_num == 1:
             Process().cpu_affinity([(process_num-1)%platform_core_num])
         else:
@@ -145,7 +145,7 @@ if __name__ == '__main__':
 
     import sys
     from time import sleep, perf_counter, time
-    from datetime import datetime
+    from datetime import datetime, UTC
     from multiprocessing.pool import Pool
     
     from psutil import cpu_count
@@ -197,9 +197,9 @@ if __name__ == '__main__':
         # progress
         current_time    = time()
         time_passed     = current_time - bench_start_time
-        time_passed_str = datetime.utcfromtimestamp( time_passed  ).strftime('%H:%M:%S')# .%f)[:-3] # 
+        time_passed_str = datetime.fromtimestamp(time_passed, UTC).strftime('%H:%M:%S')# .%f)[:-3] # 
         time_left       = 0.0 if i_bench == 1 else time_passed / (i_bench-1) * bench_num - time_passed
-        time_left_str   = datetime.utcfromtimestamp( time_left  ).strftime('%H:%M:%S')# .%f)[:-3] # 
+        time_left_str   = datetime.fromtimestamp(time_left, UTC).strftime('%H:%M:%S')# .%f)[:-3] # 
         print(f'bench {i_bench} of  {bench_num}    time passed : {time_passed_str}   time left: {time_left_str}', end='\r', flush=True if i_bench < bench_num else False )
         if i_bench == bench_num: print()
         
