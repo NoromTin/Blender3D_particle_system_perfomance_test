@@ -1,28 +1,28 @@
 cpu,platform,platform_core_num,bench_env,os_type,os_release,os_version,blender_version,bench_version,bench_max_core_num,bench_hash,test_type,mp_type,max_cpu_rating,max_cpu_rating_core_num
-AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,empty_play,mp,15.774386877881618,43
-AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,empty_play,th,0.5689459633631347,7
-AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_collision,mp,15.132501329861515,48
-AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_collision,th,0.4217780091284624,1
-AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_movement,mp,11.216459478613166,31
-AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_movement,th,0.6899579045298128,2
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,empty_play,mp,15.77438688,43
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,empty_play,th,0.568945963,7
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_collision,mp,15.13250133,48
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_collision,th,0.421778009,1
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_movement,mp,11.21645948,31
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_movement,th,0.689957905,2
 AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,empty_play,mp,53.4043809,128
 AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,empty_play,th,0.733138898,2
 AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,particle_collision,mp,36.61366201,128
 AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,particle_collision,th,0.367390198,2
 AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,particle_movement,mp,28.51672579,69
 AMD EPYC 7543 32-Core Processor,2_cpu,128,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_3,128,eb14e8e2b1ca468a,particle_movement,th,0.721481684,3
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,empty_play,mp,3.1072989064773107,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,empty_play,th,0.4918760037658365,4
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_collision,mp,2.9629493207626734,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_collision,th,0.4949149713786456,7
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_movement,mp,2.3372060534559767,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_movement,th,0.7502452364175705,6
-AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,empty_play,mp,14.926241340638812,12
-AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,empty_play,th,1.7509938290772995,14
-AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_collision,mp,8.396226645279034,16
-AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_collision,th,0.7341407781660328,1
-AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_movement,mp,7.188104147056677,13
-AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_movement,th,1.3748305438863726,2
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,empty_play,mp,3.107298906,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,empty_play,th,0.491876004,4
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_collision,mp,2.962949321,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_collision,th,0.494914971,7
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_movement,mp,2.337206053,8
+AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_3,8,33530f516d934707,particle_movement,th,0.750245236,6
+AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,empty_play,mp,14.92624134,12
+AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,empty_play,th,1.750993829,14
+AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_collision,mp,8.396226645,16
+AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_collision,th,0.734140778,1
+AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_movement,mp,7.188104147,13
+AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_movement,th,1.374830544,2
 Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,710b3b5758c74b43,empty_play,mp,6.968880072,11
 Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,710b3b5758c74b43,empty_play,th,1.073684453,15
 Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,710b3b5758c74b43,particle_collision,mp,4.449149472,15

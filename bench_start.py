@@ -54,6 +54,9 @@ tn_min      = 1
 tn_max    = 8 # 'auto' # 'auto' - Automatic os detection
 # tn_max      = 1
 
+# not best simple algorithm, started from 0 cpu
+use_cpu_affinity_for_workers = False
+
 out_to_console  = False
 out_to_csv      = True
 csv_file_dir   = './result/'
@@ -118,12 +121,11 @@ def start_worker(*args):
     gui_arg     = args[3]
     platform_core_num = args[4]
     
-    # print('platform_core_num',platform_core_num)
-    # print('process_num ', process_num, '    t_num ', t_num, '     aff ', (process_num-1)%platform_core_num)-1)
-    if t_num == 1:
-        Process().cpu_affinity([(process_num-1)%platform_core_num])
-    else:
-        Process().cpu_affinity([ i%platform_core_num for i in range(t_num)])
+    if use_cpu_affinity_for_workers:
+        if t_num == 1:
+            Process().cpu_affinity([(process_num-1)%platform_core_num])
+        else:
+            Process().cpu_affinity( [i%platform_core_num for i in range(t_num)] )
         
     blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(process_num)
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote

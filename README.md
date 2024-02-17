@@ -108,9 +108,10 @@ COMPLETED:
 7. Blender version
 
 WHATS NEW
-1.0.2.1 - timeout improvement
-1.0.2 - IPC sync signal replaced by scheduling, warm up improve
-1.0.1 - IPC, sync, worm up impruvment and refactoring. Tests time was decreased for ~two times (because better sync)
+1. 1.0.2   - ability to turn ON core affinity (could be factor for a large core systems)
+2. 1.0.2.1 - timeout improvement
+3. 1.0.2 - IPC sync signal replaced by scheduling, warm up improve
+4. 1.0.1 - IPC, sync, worm up impruvment and refactoring. Tests time was decreased for ~two times (because better sync)
 
 HISTORY(WHY):
 
