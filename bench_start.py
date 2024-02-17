@@ -65,7 +65,7 @@ is_gui_debug    = False # True - running with gui, false - without (default)
 ### sys config
 ###
 
-bench_verion = '1_0_2'
+bench_verion = '1_0_3'
 IPC_base_port = 15000
 
 # Pause between starting send start signals from coordinator
@@ -73,6 +73,8 @@ IPC_base_port = 15000
 # Should be sufficient for translating start message and workers warm up
 worker_health_timeout   = 25.0 # sec
 signal_gap_worker_start = 0.5 # sec
+
+# platform_core_num = 0
 
 # os detection
 if platform == "linux" or platform == "linux2":
@@ -87,7 +89,7 @@ elif platform == "win32":
 if  __name__ != '__main__':
 
     import subprocess
-    from psutil import process_iter
+    from psutil import process_iter, Process
     
     # blender path
     if os_type == 'Win':
@@ -114,7 +116,15 @@ def start_worker(*args):
     t_num       = args[1]
     process_num = args[2]
     gui_arg     = args[3]
+    platform_core_num = args[4]
     
+    # print('platform_core_num',platform_core_num)
+    # print('process_num ', process_num, '    t_num ', t_num, '     aff ', (process_num-1)%platform_core_num)-1)
+    if t_num == 1:
+        Process().cpu_affinity([(process_num-1)%platform_core_num])
+    else:
+        Process().cpu_affinity([ i%platform_core_num for i in range(t_num)])
+        
     blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(process_num)
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote
     
@@ -140,6 +150,7 @@ if __name__ == '__main__':
     from statistics import median
     from cpuinfo import get_cpu_info
     import platform
+    
     
     cpu_name = get_cpu_info()['brand_raw']
     os_release = platform.release()
@@ -261,13 +272,13 @@ if __name__ == '__main__':
      
             if mp_type == 'mp':
                 for mp_num in range(mp_min, mp_max + 1):
-                    args_list = [ (test_type, 1 ,mp_n, gui_arg) for mp_n in range(1, mp_num + 1)]
+                    args_list = [ (test_type, 1 ,mp_n, gui_arg,platform_core_num) for mp_n in range(1, mp_num + 1)]
                     result.append( ((mp_type,) + args_list[-1], tuple(safe_start_pool(args_list))) )
                     i_bench +=1
                     
             elif mp_type == 'th':
                 for tn_num in range(tn_min, tn_max + 1):
-                    args_list = [ (test_type, tn_num , 1, gui_arg) ]
+                    args_list = [ (test_type, tn_num , 1, gui_arg,platform_core_num) ]
                     result.append( ((mp_type,) + args_list[-1], tuple(safe_start_pool(args_list) )) )
                     i_bench +=1
 

@@ -1,10 +1,10 @@
 cpu,platform,platform_core_num,bench_env,os_type,os_release,os_version,blender_version,bench_version,bench_max_core_num,bench_hash,test_type,mp_type,max_cpu_rating,max_cpu_rating_core_num
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,761eb1a5b4cc498f,empty_play,mp,3.2200144660714773,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,761eb1a5b4cc498f,empty_play,th,0.4977575772279371,2
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,761eb1a5b4cc498f,particle_collision,mp,3.1552112966387984,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,761eb1a5b4cc498f,particle_collision,th,0.5043365885894551,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,761eb1a5b4cc498f,particle_movement,mp,2.3117039659403367,8
-AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,761eb1a5b4cc498f,particle_movement,th,0.7847974684912141,8
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,empty_play,mp,15.774386877881618,43
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,empty_play,th,0.5689459633631347,7
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_collision,mp,15.132501329861515,48
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_collision,th,0.4217780091284624,1
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_movement,mp,11.216459478613166,31
+AMD EPYC 7402P 24-Core Processor,standart,48,bare,Lnx,5.15.0-94-generic,#104-Ubuntu SMP Tue Jan 9 15:25:40 UTC 2024,4.0.2,1_0_2,48,fb395c65c89f40bc,particle_movement,th,0.6899579045298128,2
 AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,empty_play,mp,2.9232937953813805,8
 AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,empty_play,th,0.4848333462955771,3
 AMD Ryzen 7 4700U with Radeon Graphics,standart,8,bare,Win,10,10.0.19044,4.0.2,1_0_2,8,df9ed11d4cd44ed2,particle_collision,mp,2.7503042192577185,8
