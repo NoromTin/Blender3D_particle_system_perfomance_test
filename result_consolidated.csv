@@ -23,12 +23,12 @@ AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ub
 AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_collision,th,0.7341407781660328,1
 AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_movement,mp,7.188104147056677,13
 AMD Ryzen 7 7700X 8-Core Processor,standart,16,bare,Lnx,5.15.0-71-generic,#78-Ubuntu SMP Tue Apr 18 09:00:29 UTC 2023,4.0.2,1_0_2,16,0bbccf2dffa941df,particle_movement,th,1.3748305438863726,2
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_3,8,2f7ff81e80104435,empty_play,mp,0.967762071852794,4
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_3,8,2f7ff81e80104435,empty_play,th,0.2705448440389942,2
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_3,8,2f7ff81e80104435,particle_collision,mp,1.00705607602106,4
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_3,8,2f7ff81e80104435,particle_collision,th,0.2723322152371933,7
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_3,8,2f7ff81e80104435,particle_movement,mp,0.7724353797997345,4
-Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_3,8,2f7ff81e80104435,particle_movement,th,0.3650568063053203,4
+Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_2,8,2f7ff81e80104435,empty_play,mp,0.967762072,4
+Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_2,8,2f7ff81e80104435,empty_play,th,0.270544844,2
+Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_2,8,2f7ff81e80104435,particle_collision,mp,1.007056076,4
+Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_2,8,2f7ff81e80104435,particle_collision,th,0.272332215,7
+Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_2,8,2f7ff81e80104435,particle_movement,mp,0.77243538,4
+Intel(R) Core(TM) i5-2300 CPU @ 2.80GHz,standart,4,bare,Win,10,10.0.19045,4.0.2,1_0_2,8,2f7ff81e80104435,particle_movement,th,0.365056806,4
 Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,710b3b5758c74b43,empty_play,mp,6.968880072,11
 Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,710b3b5758c74b43,empty_play,th,1.073684453,15
 Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz,1_CPU_Supermicro,16,bare,Lnx,5.15.0-30-generic,#31-Ubuntu SMP Thu May 5 10:00:34 UTC 2022,4.0.2,1_0_2,16,710b3b5758c74b43,particle_collision,mp,4.449149472,15

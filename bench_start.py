@@ -129,7 +129,8 @@ def start_worker(*args):
             Process().cpu_affinity([(process_num-1)%platform_core_num])
         else:
             Process().cpu_affinity( [i%platform_core_num for i in range(t_num)] )
-        
+    
+    # blender start shell 
     blender_args = gui_arg + ' -t ' + str(t_num) + ' -P "' + bench_dir +  '/scene/scene_' + test_type + '.py"' + ' -- -pn ' + str(process_num)
     cmd = cmd_quote +  '\"' + blender_path +'\" ' + blender_args + cmd_quote
     
