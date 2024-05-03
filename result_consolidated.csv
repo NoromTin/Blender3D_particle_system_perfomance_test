@@ -59,3 +59,9 @@ Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,12,bare,Mac,22
 Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,12,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,1_0_2,12,6d92fda7fc494d3c,particle_collision,th,0.424512867,8
 Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,12,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,1_0_2,12,6d92fda7fc494d3c,particle_movement,mp,2.602023501,12
 Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz,Mac Book Pro 2018 32GRam,12,bare,Mac,22.6.0,Darwin Kernel Version 22.6.0: Tue Nov  7 21:48:06 PST 2023; root:xnu-8796.141.3.702.9~2/RELEASE_X86_64,4.0.2,1_0_2,12,6d92fda7fc494d3c,particle_movement,th,0.872422814,6
+Neoverse-N1,Ampere Altra Q80-30,80,bare,Lnx,5.15.0-105-generic,#115-Ubuntu SMP Mon Apr 15 09:52:04 UTC 2024,3.0.1,1_0_2,80,788288c32fc74d0f,empty_play,mp,51.6585377,80
+Neoverse-N1,Ampere Altra Q80-30,80,bare,Lnx,5.15.0-105-generic,#115-Ubuntu SMP Mon Apr 15 09:52:04 UTC 2024,3.0.1,1_0_2,80,788288c32fc74d0f,empty_play,th,0.66358209,67
+Neoverse-N1,Ampere Altra Q80-30,80,bare,Lnx,5.15.0-105-generic,#115-Ubuntu SMP Mon Apr 15 09:52:04 UTC 2024,3.0.1,1_0_2,80,788288c32fc74d0f,particle_collision,mp,27.2003895,80
+Neoverse-N1,Ampere Altra Q80-30,80,bare,Lnx,5.15.0-105-generic,#115-Ubuntu SMP Mon Apr 15 09:52:04 UTC 2024,3.0.1,1_0_2,80,788288c32fc74d0f,particle_collision,th,0.360815262,25
+Neoverse-N1,Ampere Altra Q80-30,80,bare,Lnx,5.15.0-105-generic,#115-Ubuntu SMP Mon Apr 15 09:52:04 UTC 2024,3.0.1,1_0_2,80,788288c32fc74d0f,particle_movement,mp,12.9568409,78
+Neoverse-N1,Ampere Altra Q80-30,80,bare,Lnx,5.15.0-105-generic,#115-Ubuntu SMP Mon Apr 15 09:52:04 UTC 2024,3.0.1,1_0_2,80,788288c32fc74d0f,particle_movement,th,0.618407631,16

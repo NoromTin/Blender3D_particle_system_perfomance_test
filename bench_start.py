@@ -22,7 +22,8 @@ bench_env       = 'bare'
 
 # blender_path_Win = 'C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender'
 blender_path_Win = 'C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender'
-blender_path_Lnx = '/snap/blender/4300/blender'
+blender_path_Lnx_1 = '/snap/blender/4300/blender'
+blender_path_Lnx_2 = '/usr/bin/blender'
 blender_path_Mac = '/Applications/Blender.app/Contents/MacOS/Blender'
 
 # test type, each have separate scene python file
@@ -102,7 +103,10 @@ if  __name__ != '__main__':
         cmd_quote = ''
         process_name = 'blender.exe'
     elif os_type == 'Lnx':
-        blender_path = blender_path_Lnx
+        if os.path.isfile(blender_path_Lnx_1):
+            blender_path = blender_path_Lnx_1
+        elif os.path.isfile(blender_path_Lnx_2):
+            blender_path = blender_path_Lnx_2
         cmd_quote = ''
         process_name = 'blender'
     elif os_type == 'Mac':
@@ -146,7 +150,9 @@ if __name__ == '__main__':
 
     import sys
     from time import sleep, perf_counter, time
-    from datetime import datetime, UTC
+    from datetime import datetime #, UTC
+    from datetime import timezone
+    UTC = timezone.utc
     from multiprocessing.pool import Pool
     
     from psutil import cpu_count
